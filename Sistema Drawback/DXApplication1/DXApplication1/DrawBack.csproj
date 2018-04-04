@@ -123,6 +123,9 @@
     <EmbeddedResource Include="Frm_cobrarpagardoc.resx">
       <DependentUpon>Frm_cobrarpagardoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Grupos.resx">
+      <DependentUpon>Frm_Grupos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Kardex.resx">
       <DependentUpon>Frm_Kardex.cs</DependentUpon>
     </EmbeddedResource>
