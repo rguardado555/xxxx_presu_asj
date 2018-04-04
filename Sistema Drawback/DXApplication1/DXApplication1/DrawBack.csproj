@@ -66,11 +66,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_ClientesProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_ClientesProveedores.Designer.cs">
+      <DependentUpon>Frm_ClientesProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_cobrarpagardoc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_cobrarpagardoc.Designer.cs">
       <DependentUpon>Frm_cobrarpagardoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Grupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Grupos.Designer.cs">
+      <DependentUpon>Frm_Grupos.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
@@ -83,6 +95,18 @@
     </Compile>
     <Compile Include="Frm_MenuPrincipal.Designer.cs">
       <DependentUpon>Frm_MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_SubGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_SubGrupos.Designer.cs">
+      <DependentUpon>Frm_SubGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Productos.Designer.cs">
+      <DependentUpon>Frm_Productos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
