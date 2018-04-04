@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawBack", "DXApplication1\DrawBack.csproj", "{9314CCE7-3F5D-4A8A-8F22-06BBE2F393BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos}\CapaDatos.csproj", "{6E3FC7B9-572F-4391-B905-7DB73C68014B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocios", "CapaNegocios\CapaNegocios.csproj", "{EEB2A3A6-79AE-457C-B685-4F4AC8073DBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9314CCE7-3F5D-4A8A-8F22-06BBE2F393BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9314CCE7-3F5D-4A8A-8F22-06BBE2F393BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9314CCE7-3F5D-4A8A-8F22-06BBE2F393BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9314CCE7-3F5D-4A8A-8F22-06BBE2F393BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3FC7B9-572F-4391-B905-7DB73C68014B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3FC7B9-572F-4391-B905-7DB73C68014B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3FC7B9-572F-4391-B905-7DB73C68014B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3FC7B9-572F-4391-B905-7DB73C68014B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB2A3A6-79AE-457C-B685-4F4AC8073DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB2A3A6-79AE-457C-B685-4F4AC8073DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB2A3A6-79AE-457C-B685-4F4AC8073DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB2A3A6-79AE-457C-B685-4F4AC8073DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
