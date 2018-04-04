@@ -84,6 +84,12 @@
     <Compile Include="Frm_Grupos.Designer.cs">
       <DependentUpon>Frm_Grupos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Kardex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Kardex.Designer.cs">
+      <DependentUpon>Frm_Kardex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_cobrarpagardoc.resx">
       <DependentUpon>Frm_cobrarpagardoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Kardex.resx">
+      <DependentUpon>Frm_Kardex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
