@@ -90,6 +90,18 @@
     <Compile Include="Frm_Kardex.Designer.cs">
       <DependentUpon>Frm_Kardex.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_List_Compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_List_Compra.Designer.cs">
+      <DependentUpon>Frm_List_Compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_List_Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_List_Ventas.Designer.cs">
+      <DependentUpon>Frm_List_Ventas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,8 +129,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="themebase.cs" />
+    <Compile Include="VariablesGenerales.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_ClientesProveedores.resx">
+      <DependentUpon>Frm_ClientesProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_cobrarpagardoc.resx">
       <DependentUpon>Frm_cobrarpagardoc.cs</DependentUpon>
@@ -128,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Kardex.resx">
       <DependentUpon>Frm_Kardex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_List_Compra.resx">
+      <DependentUpon>Frm_List_Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_List_Ventas.resx">
+      <DependentUpon>Frm_List_Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>

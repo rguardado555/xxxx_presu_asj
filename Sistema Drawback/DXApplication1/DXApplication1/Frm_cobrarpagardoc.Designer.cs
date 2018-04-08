@@ -452,7 +452,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.bar_opciones;
-            this.barDockControlTop.Size = new System.Drawing.Size(920, 26);
+            this.barDockControlTop.Size = new System.Drawing.Size(920, 28);
             // 
             // barDockControlBottom
             // 
@@ -466,17 +466,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
             this.barDockControlLeft.Manager = this.bar_opciones;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 428);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 426);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(920, 26);
+            this.barDockControlRight.Location = new System.Drawing.Point(920, 28);
             this.barDockControlRight.Manager = this.bar_opciones;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 428);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 426);
             // 
             // Frm_cobrarpagardoc
             // 

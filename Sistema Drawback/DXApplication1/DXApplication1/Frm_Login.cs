@@ -16,5 +16,13 @@ namespace DXApplication1
         {
             InitializeComponent();
         }
+
+        private void btn_acceder_Click(object sender, EventArgs e)
+        {
+            Frm_MenuPrincipal ObjPrincipal = new Frm_MenuPrincipal();
+            ObjPrincipal.Show();
+            this.Hide();
+
+        }
     }
 }
