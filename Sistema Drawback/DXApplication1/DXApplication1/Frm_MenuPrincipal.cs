@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-
+using CapaNegocios;
 namespace DXApplication1
 {
     public partial class Frm_MenuPrincipal : DevExpress.XtraEditors.XtraForm
@@ -55,6 +55,27 @@ namespace DXApplication1
             Frm_List_Ventas objlistVentas = new Frm_List_Ventas();
             objlistVentas.MdiParent = this;
             objlistVentas.Show();
+        }
+
+        private void btn_empresas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_Empresa ObjEmpresa = new Frm_Empresa();
+            ObjEmpresa.MdiParent = this;
+            ObjEmpresa.Show();
+        }
+
+        private void Frm_MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+        void llenarEmpresa()
+        {
+           //cbo_empresas.Edit.= NFunciones.TABLASQL("select idempresa Codigo,razonsocial Empresa from tb_empresa order by idempresa asc");
         }
     }
 }

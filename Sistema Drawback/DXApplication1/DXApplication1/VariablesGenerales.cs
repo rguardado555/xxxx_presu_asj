@@ -9,5 +9,6 @@ namespace DXApplication1
   public  class VariablesGenerales
     {
         public static string tipooperacion = "";
+        public static string Empresa = "";
     }
 }
