@@ -148,12 +148,20 @@ namespace DXApplication1
 
         private void dtg_datos_MouseClick(object sender, MouseEventArgs e)
         {
-            txt_codempresa.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_codigo));
-            txt_razonsocial.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_razonsocial));
-            txt_direccion.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_direccion));
-            txt_ruc.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_ruc));
-            txt_telefono.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_telefono));
-            txt_email.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_email));
+            try
+            {
+                txt_codempresa.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_codigo));
+                txt_razonsocial.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_razonsocial));
+                txt_direccion.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_direccion));
+                txt_ruc.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_ruc));
+                txt_telefono.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_telefono));
+                txt_email.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_email));
+
+            }
+            catch
+            {
+
+            }
         }
 
         private void btn_cancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
