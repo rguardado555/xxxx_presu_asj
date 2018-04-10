@@ -73,11 +73,11 @@
     <Compile Include="Frm_ClientesProveedores.Designer.cs">
       <DependentUpon>Frm_ClientesProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_cobrarpagardoc.cs">
+    <Compile Include="Frm_Compra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_cobrarpagardoc.Designer.cs">
-      <DependentUpon>Frm_cobrarpagardoc.cs</DependentUpon>
+    <Compile Include="Frm_Compra.Designer.cs">
+      <DependentUpon>Frm_Compra.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Empresa.cs">
       <SubType>Form</SubType>
@@ -146,8 +146,8 @@
     <EmbeddedResource Include="Frm_ClientesProveedores.resx">
       <DependentUpon>Frm_ClientesProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_cobrarpagardoc.resx">
-      <DependentUpon>Frm_cobrarpagardoc.cs</DependentUpon>
+    <EmbeddedResource Include="Frm_Compra.resx">
+      <DependentUpon>Frm_Compra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Empresa.resx">
       <DependentUpon>Frm_Empresa.cs</DependentUpon>

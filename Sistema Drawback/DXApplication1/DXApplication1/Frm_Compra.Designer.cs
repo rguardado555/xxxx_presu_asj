@@ -1,6 +1,6 @@
 ﻿namespace DXApplication1
 {
-    partial class Frm_cobrarpagardoc
+    partial class Frm_Compra
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_cobrarpagardoc));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Compra));
             this.monoFlat_Panel1 = new MonoFlat.MonoFlat_Panel();
+            this.txt_operacion = new DevExpress.XtraEditors.TextEdit();
+            this.txt_idoperacion = new DevExpress.XtraEditors.TextEdit();
             this.dtp_fechaoperacion = new DevExpress.XtraEditors.DateEdit();
             this.monoFlat_Label7 = new MonoFlat.MonoFlat_Label();
             this.monoFlat_Label6 = new MonoFlat.MonoFlat_Label();
@@ -45,23 +47,35 @@
             this.monoFlat_Label2 = new MonoFlat.MonoFlat_Label();
             this.monoFlat_Label1 = new MonoFlat.MonoFlat_Label();
             this.monoFlat_Panel2 = new MonoFlat.MonoFlat_Panel();
-            this.dtg_datos = new DevExpress.XtraGrid.GridControl();
-            this.vista_datos = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.cbo_producto = new DevExpress.XtraEditors.LookUpEdit();
-            this.monoFlat_Label8 = new MonoFlat.MonoFlat_Label();
-            this.monoFlat_Label9 = new MonoFlat.MonoFlat_Label();
-            this.txt_idoperacion = new DevExpress.XtraEditors.TextEdit();
-            this.txt_operacion = new DevExpress.XtraEditors.TextEdit();
-            this.txt_cantidad = new DevExpress.XtraEditors.TextEdit();
-            this.txt_preciounit = new DevExpress.XtraEditors.TextEdit();
-            this.monoFlat_Label10 = new MonoFlat.MonoFlat_Label();
-            this.monoFlat_Label11 = new MonoFlat.MonoFlat_Label();
-            this.txt_impuesto = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.monoFlat_Label15 = new MonoFlat.MonoFlat_Label();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.monoFlat_Label14 = new MonoFlat.MonoFlat_Label();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.monoFlat_Label13 = new MonoFlat.MonoFlat_Label();
+            this.btn_eliminardetalle = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_agregardetalle = new DevExpress.XtraEditors.SimpleButton();
             this.monoFlat_Label12 = new MonoFlat.MonoFlat_Label();
             this.txt_total = new DevExpress.XtraEditors.TextEdit();
-            this.btn_agregardetalle = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_eliminardetalle = new DevExpress.XtraEditors.SimpleButton();
+            this.monoFlat_Label11 = new MonoFlat.MonoFlat_Label();
+            this.txt_impuesto = new DevExpress.XtraEditors.TextEdit();
+            this.monoFlat_Label10 = new MonoFlat.MonoFlat_Label();
+            this.txt_preciounit = new DevExpress.XtraEditors.TextEdit();
+            this.txt_cantidad = new DevExpress.XtraEditors.TextEdit();
+            this.monoFlat_Label9 = new MonoFlat.MonoFlat_Label();
+            this.cbo_producto = new DevExpress.XtraEditors.LookUpEdit();
+            this.monoFlat_Label8 = new MonoFlat.MonoFlat_Label();
+            this.dtg_datos = new DevExpress.XtraGrid.GridControl();
+            this.vista_datos = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.COL_ITEM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_IDPRODUCTO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_DESCRIPCION = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_CANTIDAD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_IMP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_IMPUESTO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_PRECIOUNIT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_TOTAL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.menu_opciones = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btn_nuevo = new DevExpress.XtraBars.BarButtonItem();
@@ -76,21 +90,9 @@
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_salir = new DevExpress.XtraBars.BarButtonItem();
-            this.COL_ITEM = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_IDPRODUCTO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_DESCRIPCION = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_CANTIDAD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_IMP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_IMPUESTO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_PRECIOUNIT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_TOTAL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.monoFlat_Label13 = new MonoFlat.MonoFlat_Label();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.monoFlat_Label14 = new MonoFlat.MonoFlat_Label();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.monoFlat_Label15 = new MonoFlat.MonoFlat_Label();
             this.monoFlat_Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_operacion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_idoperacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fechaoperacion.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fechaoperacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fechadoc.Properties.CalendarTimeProperties)).BeginInit();
@@ -100,20 +102,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_serie.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_documento.Properties)).BeginInit();
             this.monoFlat_Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_total.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_impuesto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_preciounit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cantidad.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_producto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_producto.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_idoperacion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_operacion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_cantidad.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_preciounit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_impuesto.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_total.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // monoFlat_Panel1
@@ -136,17 +136,37 @@
             this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label3);
             this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label2);
             this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label1);
-            this.monoFlat_Panel1.Location = new System.Drawing.Point(2, 23);
+            this.monoFlat_Panel1.Location = new System.Drawing.Point(2, 29);
             this.monoFlat_Panel1.Name = "monoFlat_Panel1";
             this.monoFlat_Panel1.Padding = new System.Windows.Forms.Padding(5);
             this.monoFlat_Panel1.Size = new System.Drawing.Size(1059, 150);
             this.monoFlat_Panel1.TabIndex = 0;
             this.monoFlat_Panel1.Text = "monoFlat_Panel1";
             // 
+            // txt_operacion
+            // 
+            this.txt_operacion.Location = new System.Drawing.Point(221, 21);
+            this.txt_operacion.Name = "txt_operacion";
+            this.txt_operacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_operacion.Properties.Appearance.Options.UseFont = true;
+            this.txt_operacion.Properties.ReadOnly = true;
+            this.txt_operacion.Size = new System.Drawing.Size(193, 24);
+            this.txt_operacion.TabIndex = 17;
+            // 
+            // txt_idoperacion
+            // 
+            this.txt_idoperacion.Location = new System.Drawing.Point(125, 21);
+            this.txt_idoperacion.Name = "txt_idoperacion";
+            this.txt_idoperacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_idoperacion.Properties.Appearance.Options.UseFont = true;
+            this.txt_idoperacion.Properties.ReadOnly = true;
+            this.txt_idoperacion.Size = new System.Drawing.Size(90, 24);
+            this.txt_idoperacion.TabIndex = 16;
+            // 
             // dtp_fechaoperacion
             // 
             this.dtp_fechaoperacion.EditValue = null;
-            this.dtp_fechaoperacion.Location = new System.Drawing.Point(606, 21);
+            this.dtp_fechaoperacion.Location = new System.Drawing.Point(645, 21);
             this.dtp_fechaoperacion.Name = "dtp_fechaoperacion";
             this.dtp_fechaoperacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fechaoperacion.Properties.Appearance.Options.UseFont = true;
@@ -154,6 +174,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtp_fechaoperacion.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtp_fechaoperacion.Properties.ReadOnly = true;
             this.dtp_fechaoperacion.Size = new System.Drawing.Size(147, 24);
             this.dtp_fechaoperacion.TabIndex = 15;
             // 
@@ -163,7 +184,7 @@
             this.monoFlat_Label7.BackColor = System.Drawing.Color.Transparent;
             this.monoFlat_Label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monoFlat_Label7.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label7.Location = new System.Drawing.Point(494, 24);
+            this.monoFlat_Label7.Location = new System.Drawing.Point(531, 24);
             this.monoFlat_Label7.Name = "monoFlat_Label7";
             this.monoFlat_Label7.Size = new System.Drawing.Size(106, 17);
             this.monoFlat_Label7.TabIndex = 14;
@@ -192,7 +213,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtp_fechadoc.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtp_fechadoc.Size = new System.Drawing.Size(100, 24);
+            this.dtp_fechadoc.Size = new System.Drawing.Size(139, 24);
             this.dtp_fechadoc.TabIndex = 12;
             // 
             // cbo_clieprov
@@ -323,49 +344,181 @@
             this.monoFlat_Panel2.Controls.Add(this.cbo_producto);
             this.monoFlat_Panel2.Controls.Add(this.monoFlat_Label8);
             this.monoFlat_Panel2.Controls.Add(this.dtg_datos);
-            this.monoFlat_Panel2.Location = new System.Drawing.Point(2, 174);
+            this.monoFlat_Panel2.Location = new System.Drawing.Point(2, 181);
             this.monoFlat_Panel2.Name = "monoFlat_Panel2";
             this.monoFlat_Panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.monoFlat_Panel2.Size = new System.Drawing.Size(1059, 347);
+            this.monoFlat_Panel2.Size = new System.Drawing.Size(1059, 336);
             this.monoFlat_Panel2.TabIndex = 1;
             this.monoFlat_Panel2.Text = "monoFlat_Panel2";
             // 
-            // dtg_datos
+            // textEdit3
             // 
-            this.dtg_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtg_datos.Location = new System.Drawing.Point(3, 57);
-            this.dtg_datos.MainView = this.vista_datos;
-            this.dtg_datos.Name = "dtg_datos";
-            this.dtg_datos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1});
-            this.dtg_datos.Size = new System.Drawing.Size(1051, 196);
-            this.dtg_datos.TabIndex = 0;
-            this.dtg_datos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.vista_datos});
+            this.textEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textEdit3.Location = new System.Drawing.Point(909, 308);
+            this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit3.Properties.Appearance.Options.UseFont = true;
+            this.textEdit3.Size = new System.Drawing.Size(142, 24);
+            this.textEdit3.TabIndex = 32;
             // 
-            // vista_datos
+            // monoFlat_Label15
             // 
-            this.vista_datos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.COL_ITEM,
-            this.COL_IDPRODUCTO,
-            this.COL_DESCRIPCION,
-            this.COL_CANTIDAD,
-            this.COL_IMP,
-            this.COL_IMPUESTO,
-            this.COL_PRECIOUNIT,
-            this.COL_TOTAL});
-            this.vista_datos.GridControl = this.dtg_datos;
-            this.vista_datos.Name = "vista_datos";
-            this.vista_datos.OptionsView.ShowGroupPanel = false;
+            this.monoFlat_Label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.monoFlat_Label15.AutoSize = true;
+            this.monoFlat_Label15.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label15.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label15.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label15.Location = new System.Drawing.Point(846, 309);
+            this.monoFlat_Label15.Name = "monoFlat_Label15";
+            this.monoFlat_Label15.Size = new System.Drawing.Size(42, 20);
+            this.monoFlat_Label15.TabIndex = 31;
+            this.monoFlat_Label15.Text = "Total";
             // 
-            // repositoryItemButtonEdit1
+            // textEdit2
             // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.textEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textEdit2.Location = new System.Drawing.Point(909, 278);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Size = new System.Drawing.Size(142, 24);
+            this.textEdit2.TabIndex = 30;
+            // 
+            // monoFlat_Label14
+            // 
+            this.monoFlat_Label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.monoFlat_Label14.AutoSize = true;
+            this.monoFlat_Label14.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label14.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label14.Location = new System.Drawing.Point(847, 281);
+            this.monoFlat_Label14.Name = "monoFlat_Label14";
+            this.monoFlat_Label14.Size = new System.Drawing.Size(62, 17);
+            this.monoFlat_Label14.TabIndex = 29;
+            this.monoFlat_Label14.Text = "Impuesto";
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textEdit1.Location = new System.Drawing.Point(909, 248);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Size = new System.Drawing.Size(142, 24);
+            this.textEdit1.TabIndex = 28;
+            // 
+            // monoFlat_Label13
+            // 
+            this.monoFlat_Label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.monoFlat_Label13.AutoSize = true;
+            this.monoFlat_Label13.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label13.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label13.Location = new System.Drawing.Point(847, 251);
+            this.monoFlat_Label13.Name = "monoFlat_Label13";
+            this.monoFlat_Label13.Size = new System.Drawing.Size(62, 17);
+            this.monoFlat_Label13.TabIndex = 27;
+            this.monoFlat_Label13.Text = "Sub Total";
+            // 
+            // btn_eliminardetalle
+            // 
+            this.btn_eliminardetalle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminardetalle.ImageOptions.Image")));
+            this.btn_eliminardetalle.Location = new System.Drawing.Point(1030, 23);
+            this.btn_eliminardetalle.Name = "btn_eliminardetalle";
+            this.btn_eliminardetalle.Size = new System.Drawing.Size(23, 23);
+            this.btn_eliminardetalle.TabIndex = 26;
+            // 
+            // btn_agregardetalle
+            // 
+            this.btn_agregardetalle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_agregardetalle.ImageOptions.Image")));
+            this.btn_agregardetalle.Location = new System.Drawing.Point(1001, 24);
+            this.btn_agregardetalle.Name = "btn_agregardetalle";
+            this.btn_agregardetalle.Size = new System.Drawing.Size(23, 23);
+            this.btn_agregardetalle.TabIndex = 25;
+            // 
+            // monoFlat_Label12
+            // 
+            this.monoFlat_Label12.AutoSize = true;
+            this.monoFlat_Label12.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label12.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label12.Location = new System.Drawing.Point(847, 27);
+            this.monoFlat_Label12.Name = "monoFlat_Label12";
+            this.monoFlat_Label12.Size = new System.Drawing.Size(36, 17);
+            this.monoFlat_Label12.TabIndex = 24;
+            this.monoFlat_Label12.Text = "Total";
+            // 
+            // txt_total
+            // 
+            this.txt_total.Location = new System.Drawing.Point(889, 23);
+            this.txt_total.Name = "txt_total";
+            this.txt_total.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_total.Properties.Appearance.Options.UseFont = true;
+            this.txt_total.Size = new System.Drawing.Size(90, 24);
+            this.txt_total.TabIndex = 23;
+            // 
+            // monoFlat_Label11
+            // 
+            this.monoFlat_Label11.AutoSize = true;
+            this.monoFlat_Label11.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label11.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label11.Location = new System.Drawing.Point(698, 26);
+            this.monoFlat_Label11.Name = "monoFlat_Label11";
+            this.monoFlat_Label11.Size = new System.Drawing.Size(45, 17);
+            this.monoFlat_Label11.TabIndex = 22;
+            this.monoFlat_Label11.Text = "% imp";
+            // 
+            // txt_impuesto
+            // 
+            this.txt_impuesto.Location = new System.Drawing.Point(749, 23);
+            this.txt_impuesto.Name = "txt_impuesto";
+            this.txt_impuesto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_impuesto.Properties.Appearance.Options.UseFont = true;
+            this.txt_impuesto.Size = new System.Drawing.Size(90, 24);
+            this.txt_impuesto.TabIndex = 21;
+            // 
+            // monoFlat_Label10
+            // 
+            this.monoFlat_Label10.AutoSize = true;
+            this.monoFlat_Label10.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label10.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label10.Location = new System.Drawing.Point(535, 26);
+            this.monoFlat_Label10.Name = "monoFlat_Label10";
+            this.monoFlat_Label10.Size = new System.Drawing.Size(71, 17);
+            this.monoFlat_Label10.TabIndex = 20;
+            this.monoFlat_Label10.Text = "Precio Unit";
+            // 
+            // txt_preciounit
+            // 
+            this.txt_preciounit.Location = new System.Drawing.Point(606, 23);
+            this.txt_preciounit.Name = "txt_preciounit";
+            this.txt_preciounit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_preciounit.Properties.Appearance.Options.UseFont = true;
+            this.txt_preciounit.Size = new System.Drawing.Size(90, 24);
+            this.txt_preciounit.TabIndex = 19;
+            // 
+            // txt_cantidad
+            // 
+            this.txt_cantidad.Location = new System.Drawing.Point(439, 20);
+            this.txt_cantidad.Name = "txt_cantidad";
+            this.txt_cantidad.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_cantidad.Properties.Appearance.Options.UseFont = true;
+            this.txt_cantidad.Size = new System.Drawing.Size(90, 24);
+            this.txt_cantidad.TabIndex = 18;
+            // 
+            // monoFlat_Label9
+            // 
+            this.monoFlat_Label9.AutoSize = true;
+            this.monoFlat_Label9.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label9.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label9.Location = new System.Drawing.Point(373, 23);
+            this.monoFlat_Label9.Name = "monoFlat_Label9";
+            this.monoFlat_Label9.Size = new System.Drawing.Size(60, 17);
+            this.monoFlat_Label9.TabIndex = 8;
+            this.monoFlat_Label9.Text = "Cantidad";
             // 
             // cbo_producto
             // 
@@ -391,123 +544,106 @@
             this.monoFlat_Label8.TabIndex = 6;
             this.monoFlat_Label8.Text = "Producto";
             // 
-            // monoFlat_Label9
+            // dtg_datos
             // 
-            this.monoFlat_Label9.AutoSize = true;
-            this.monoFlat_Label9.BackColor = System.Drawing.Color.Transparent;
-            this.monoFlat_Label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monoFlat_Label9.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label9.Location = new System.Drawing.Point(373, 23);
-            this.monoFlat_Label9.Name = "monoFlat_Label9";
-            this.monoFlat_Label9.Size = new System.Drawing.Size(60, 17);
-            this.monoFlat_Label9.TabIndex = 8;
-            this.monoFlat_Label9.Text = "Cantidad";
+            this.dtg_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtg_datos.Location = new System.Drawing.Point(3, 57);
+            this.dtg_datos.MainView = this.vista_datos;
+            this.dtg_datos.Name = "dtg_datos";
+            this.dtg_datos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1});
+            this.dtg_datos.Size = new System.Drawing.Size(1051, 185);
+            this.dtg_datos.TabIndex = 0;
+            this.dtg_datos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.vista_datos});
             // 
-            // txt_idoperacion
+            // vista_datos
             // 
-            this.txt_idoperacion.Location = new System.Drawing.Point(125, 21);
-            this.txt_idoperacion.Name = "txt_idoperacion";
-            this.txt_idoperacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_idoperacion.Properties.Appearance.Options.UseFont = true;
-            this.txt_idoperacion.Size = new System.Drawing.Size(90, 24);
-            this.txt_idoperacion.TabIndex = 16;
+            this.vista_datos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.COL_ITEM,
+            this.COL_IDPRODUCTO,
+            this.COL_DESCRIPCION,
+            this.COL_CANTIDAD,
+            this.COL_IMP,
+            this.COL_IMPUESTO,
+            this.COL_PRECIOUNIT,
+            this.COL_TOTAL});
+            this.vista_datos.GridControl = this.dtg_datos;
+            this.vista_datos.Name = "vista_datos";
+            this.vista_datos.OptionsView.ShowGroupPanel = false;
             // 
-            // txt_operacion
+            // COL_ITEM
             // 
-            this.txt_operacion.Location = new System.Drawing.Point(221, 21);
-            this.txt_operacion.Name = "txt_operacion";
-            this.txt_operacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_operacion.Properties.Appearance.Options.UseFont = true;
-            this.txt_operacion.Size = new System.Drawing.Size(193, 24);
-            this.txt_operacion.TabIndex = 17;
+            this.COL_ITEM.Caption = "Item";
+            this.COL_ITEM.FieldName = "ITEM";
+            this.COL_ITEM.Name = "COL_ITEM";
+            this.COL_ITEM.Visible = true;
+            this.COL_ITEM.VisibleIndex = 0;
             // 
-            // txt_cantidad
+            // COL_IDPRODUCTO
             // 
-            this.txt_cantidad.Location = new System.Drawing.Point(439, 20);
-            this.txt_cantidad.Name = "txt_cantidad";
-            this.txt_cantidad.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cantidad.Properties.Appearance.Options.UseFont = true;
-            this.txt_cantidad.Size = new System.Drawing.Size(90, 24);
-            this.txt_cantidad.TabIndex = 18;
+            this.COL_IDPRODUCTO.Caption = "Codigo";
+            this.COL_IDPRODUCTO.FieldName = "IDPRODUCTO";
+            this.COL_IDPRODUCTO.Name = "COL_IDPRODUCTO";
+            this.COL_IDPRODUCTO.Visible = true;
+            this.COL_IDPRODUCTO.VisibleIndex = 1;
             // 
-            // txt_preciounit
+            // COL_DESCRIPCION
             // 
-            this.txt_preciounit.Location = new System.Drawing.Point(606, 23);
-            this.txt_preciounit.Name = "txt_preciounit";
-            this.txt_preciounit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_preciounit.Properties.Appearance.Options.UseFont = true;
-            this.txt_preciounit.Size = new System.Drawing.Size(90, 24);
-            this.txt_preciounit.TabIndex = 19;
+            this.COL_DESCRIPCION.Caption = "Producto";
+            this.COL_DESCRIPCION.FieldName = "DESCRIPCION";
+            this.COL_DESCRIPCION.Name = "COL_DESCRIPCION";
+            this.COL_DESCRIPCION.Visible = true;
+            this.COL_DESCRIPCION.VisibleIndex = 2;
             // 
-            // monoFlat_Label10
+            // COL_CANTIDAD
             // 
-            this.monoFlat_Label10.AutoSize = true;
-            this.monoFlat_Label10.BackColor = System.Drawing.Color.Transparent;
-            this.monoFlat_Label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monoFlat_Label10.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label10.Location = new System.Drawing.Point(535, 26);
-            this.monoFlat_Label10.Name = "monoFlat_Label10";
-            this.monoFlat_Label10.Size = new System.Drawing.Size(71, 17);
-            this.monoFlat_Label10.TabIndex = 20;
-            this.monoFlat_Label10.Text = "Precio Unit";
+            this.COL_CANTIDAD.Caption = "Cantidad";
+            this.COL_CANTIDAD.FieldName = "CANTIDAD";
+            this.COL_CANTIDAD.Name = "COL_CANTIDAD";
+            this.COL_CANTIDAD.Visible = true;
+            this.COL_CANTIDAD.VisibleIndex = 3;
             // 
-            // monoFlat_Label11
+            // COL_IMP
             // 
-            this.monoFlat_Label11.AutoSize = true;
-            this.monoFlat_Label11.BackColor = System.Drawing.Color.Transparent;
-            this.monoFlat_Label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monoFlat_Label11.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label11.Location = new System.Drawing.Point(698, 26);
-            this.monoFlat_Label11.Name = "monoFlat_Label11";
-            this.monoFlat_Label11.Size = new System.Drawing.Size(45, 17);
-            this.monoFlat_Label11.TabIndex = 22;
-            this.monoFlat_Label11.Text = "% imp";
+            this.COL_IMP.Caption = "% Imp";
+            this.COL_IMP.FieldName = "IMP";
+            this.COL_IMP.Name = "COL_IMP";
+            this.COL_IMP.Visible = true;
+            this.COL_IMP.VisibleIndex = 5;
             // 
-            // txt_impuesto
+            // COL_IMPUESTO
             // 
-            this.txt_impuesto.Location = new System.Drawing.Point(749, 23);
-            this.txt_impuesto.Name = "txt_impuesto";
-            this.txt_impuesto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_impuesto.Properties.Appearance.Options.UseFont = true;
-            this.txt_impuesto.Size = new System.Drawing.Size(90, 24);
-            this.txt_impuesto.TabIndex = 21;
+            this.COL_IMPUESTO.Caption = "Impuesto";
+            this.COL_IMPUESTO.FieldName = "IMPUESTO";
+            this.COL_IMPUESTO.Name = "COL_IMPUESTO";
+            this.COL_IMPUESTO.Visible = true;
+            this.COL_IMPUESTO.VisibleIndex = 6;
             // 
-            // monoFlat_Label12
+            // COL_PRECIOUNIT
             // 
-            this.monoFlat_Label12.AutoSize = true;
-            this.monoFlat_Label12.BackColor = System.Drawing.Color.Transparent;
-            this.monoFlat_Label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monoFlat_Label12.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label12.Location = new System.Drawing.Point(847, 27);
-            this.monoFlat_Label12.Name = "monoFlat_Label12";
-            this.monoFlat_Label12.Size = new System.Drawing.Size(36, 17);
-            this.monoFlat_Label12.TabIndex = 24;
-            this.monoFlat_Label12.Text = "Total";
+            this.COL_PRECIOUNIT.Caption = "PrecioUnit";
+            this.COL_PRECIOUNIT.FieldName = "PRECIOUNIT";
+            this.COL_PRECIOUNIT.Name = "COL_PRECIOUNIT";
+            this.COL_PRECIOUNIT.Visible = true;
+            this.COL_PRECIOUNIT.VisibleIndex = 4;
             // 
-            // txt_total
+            // COL_TOTAL
             // 
-            this.txt_total.Location = new System.Drawing.Point(889, 23);
-            this.txt_total.Name = "txt_total";
-            this.txt_total.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_total.Properties.Appearance.Options.UseFont = true;
-            this.txt_total.Size = new System.Drawing.Size(90, 24);
-            this.txt_total.TabIndex = 23;
+            this.COL_TOTAL.Caption = "Total";
+            this.COL_TOTAL.FieldName = "TOTAL";
+            this.COL_TOTAL.Name = "COL_TOTAL";
+            this.COL_TOTAL.Visible = true;
+            this.COL_TOTAL.VisibleIndex = 7;
             // 
-            // btn_agregardetalle
+            // repositoryItemButtonEdit1
             // 
-            this.btn_agregardetalle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btn_agregardetalle.Location = new System.Drawing.Point(1001, 24);
-            this.btn_agregardetalle.Name = "btn_agregardetalle";
-            this.btn_agregardetalle.Size = new System.Drawing.Size(23, 23);
-            this.btn_agregardetalle.TabIndex = 25;
-            // 
-            // btn_eliminardetalle
-            // 
-            this.btn_eliminardetalle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btn_eliminardetalle.Location = new System.Drawing.Point(1030, 23);
-            this.btn_eliminardetalle.Name = "btn_eliminardetalle";
-            this.btn_eliminardetalle.Size = new System.Drawing.Size(23, 23);
-            this.btn_eliminardetalle.TabIndex = 26;
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
             // menu_opciones
             // 
@@ -593,6 +729,7 @@
             this.btn_exit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_exit.ImageOptions.Image")));
             this.btn_exit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_exit.ImageOptions.LargeImage")));
             this.btn_exit.Name = "btn_exit";
+            this.btn_exit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_exit_ItemClick);
             // 
             // barDockControl1
             // 
@@ -600,7 +737,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.menu_opciones;
-            this.barDockControl1.Size = new System.Drawing.Size(1063, 28);
+            this.barDockControl1.Size = new System.Drawing.Size(1063, 31);
             // 
             // barDockControl2
             // 
@@ -614,17 +751,17 @@
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 28);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 31);
             this.barDockControl3.Manager = this.menu_opciones;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 492);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 489);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1063, 28);
+            this.barDockControl4.Location = new System.Drawing.Point(1063, 31);
             this.barDockControl4.Manager = this.menu_opciones;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 492);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 489);
             // 
             // barButtonItem12
             // 
@@ -641,140 +778,7 @@
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
-            // COL_ITEM
-            // 
-            this.COL_ITEM.Caption = "Item";
-            this.COL_ITEM.FieldName = "ITEM";
-            this.COL_ITEM.Name = "COL_ITEM";
-            this.COL_ITEM.Visible = true;
-            this.COL_ITEM.VisibleIndex = 0;
-            // 
-            // COL_IDPRODUCTO
-            // 
-            this.COL_IDPRODUCTO.Caption = "Codigo";
-            this.COL_IDPRODUCTO.FieldName = "IDPRODUCTO";
-            this.COL_IDPRODUCTO.Name = "COL_IDPRODUCTO";
-            this.COL_IDPRODUCTO.Visible = true;
-            this.COL_IDPRODUCTO.VisibleIndex = 1;
-            // 
-            // COL_DESCRIPCION
-            // 
-            this.COL_DESCRIPCION.Caption = "Producto";
-            this.COL_DESCRIPCION.FieldName = "DESCRIPCION";
-            this.COL_DESCRIPCION.Name = "COL_DESCRIPCION";
-            this.COL_DESCRIPCION.Visible = true;
-            this.COL_DESCRIPCION.VisibleIndex = 2;
-            // 
-            // COL_CANTIDAD
-            // 
-            this.COL_CANTIDAD.Caption = "Cantidad";
-            this.COL_CANTIDAD.FieldName = "CANTIDAD";
-            this.COL_CANTIDAD.Name = "COL_CANTIDAD";
-            this.COL_CANTIDAD.Visible = true;
-            this.COL_CANTIDAD.VisibleIndex = 3;
-            // 
-            // COL_IMP
-            // 
-            this.COL_IMP.Caption = "% Imp";
-            this.COL_IMP.FieldName = "IMP";
-            this.COL_IMP.Name = "COL_IMP";
-            this.COL_IMP.Visible = true;
-            this.COL_IMP.VisibleIndex = 5;
-            // 
-            // COL_IMPUESTO
-            // 
-            this.COL_IMPUESTO.Caption = "Impuesto";
-            this.COL_IMPUESTO.FieldName = "IMPUESTO";
-            this.COL_IMPUESTO.Name = "COL_IMPUESTO";
-            this.COL_IMPUESTO.Visible = true;
-            this.COL_IMPUESTO.VisibleIndex = 6;
-            // 
-            // COL_PRECIOUNIT
-            // 
-            this.COL_PRECIOUNIT.Caption = "PrecioUnit";
-            this.COL_PRECIOUNIT.FieldName = "PRECIOUNIT";
-            this.COL_PRECIOUNIT.Name = "COL_PRECIOUNIT";
-            this.COL_PRECIOUNIT.Visible = true;
-            this.COL_PRECIOUNIT.VisibleIndex = 4;
-            // 
-            // COL_TOTAL
-            // 
-            this.COL_TOTAL.Caption = "Total";
-            this.COL_TOTAL.FieldName = "TOTAL";
-            this.COL_TOTAL.Name = "COL_TOTAL";
-            this.COL_TOTAL.Visible = true;
-            this.COL_TOTAL.VisibleIndex = 7;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEdit1.Location = new System.Drawing.Point(909, 259);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(142, 24);
-            this.textEdit1.TabIndex = 28;
-            // 
-            // monoFlat_Label13
-            // 
-            this.monoFlat_Label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.monoFlat_Label13.AutoSize = true;
-            this.monoFlat_Label13.BackColor = System.Drawing.Color.Transparent;
-            this.monoFlat_Label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monoFlat_Label13.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label13.Location = new System.Drawing.Point(847, 262);
-            this.monoFlat_Label13.Name = "monoFlat_Label13";
-            this.monoFlat_Label13.Size = new System.Drawing.Size(62, 17);
-            this.monoFlat_Label13.TabIndex = 27;
-            this.monoFlat_Label13.Text = "Sub Total";
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEdit2.Location = new System.Drawing.Point(909, 289);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(142, 24);
-            this.textEdit2.TabIndex = 30;
-            // 
-            // monoFlat_Label14
-            // 
-            this.monoFlat_Label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.monoFlat_Label14.AutoSize = true;
-            this.monoFlat_Label14.BackColor = System.Drawing.Color.Transparent;
-            this.monoFlat_Label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monoFlat_Label14.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label14.Location = new System.Drawing.Point(847, 292);
-            this.monoFlat_Label14.Name = "monoFlat_Label14";
-            this.monoFlat_Label14.Size = new System.Drawing.Size(62, 17);
-            this.monoFlat_Label14.TabIndex = 29;
-            this.monoFlat_Label14.Text = "Impuesto";
-            // 
-            // textEdit3
-            // 
-            this.textEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEdit3.Location = new System.Drawing.Point(909, 319);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit3.Properties.Appearance.Options.UseFont = true;
-            this.textEdit3.Size = new System.Drawing.Size(142, 24);
-            this.textEdit3.TabIndex = 32;
-            // 
-            // monoFlat_Label15
-            // 
-            this.monoFlat_Label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.monoFlat_Label15.AutoSize = true;
-            this.monoFlat_Label15.BackColor = System.Drawing.Color.Transparent;
-            this.monoFlat_Label15.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monoFlat_Label15.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label15.Location = new System.Drawing.Point(846, 320);
-            this.monoFlat_Label15.Name = "monoFlat_Label15";
-            this.monoFlat_Label15.Size = new System.Drawing.Size(42, 20);
-            this.monoFlat_Label15.TabIndex = 31;
-            this.monoFlat_Label15.Text = "Total";
-            // 
-            // Frm_cobrarpagardoc
+            // Frm_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -787,12 +791,14 @@
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Frm_cobrarpagardoc";
+            this.Name = "Frm_Compra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_cobrarpagardoc";
+            this.Text = "Compra";
             this.Load += new System.EventHandler(this.Frm_cobrarpagardoc_Load);
             this.monoFlat_Panel1.ResumeLayout(false);
             this.monoFlat_Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_operacion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_idoperacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fechaoperacion.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fechaoperacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fechadoc.Properties.CalendarTimeProperties)).EndInit();
@@ -803,20 +809,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbo_documento.Properties)).EndInit();
             this.monoFlat_Panel2.ResumeLayout(false);
             this.monoFlat_Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_total.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_impuesto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_preciounit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cantidad.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_producto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_producto.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_idoperacion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_operacion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_cantidad.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_preciounit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_impuesto.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_total.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

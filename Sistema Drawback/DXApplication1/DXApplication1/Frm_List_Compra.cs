@@ -28,5 +28,11 @@ namespace DXApplication1
             dtg_datos.DataSource = NFunciones.TABLASQL("Select idcobrarpagardoc ID,iddocumento+' '+serie+' '+numero DOC,idclieprov IDCLIEPROV,RAZONSOCIAL,fecha FECHA,estado IDESTADO,CASE ESTADO WHEN '0' THEN 'ANULADO' ELSE 'ACTIVADO' END ESTADO from tb_cobrarpagardoc where idempresa='"+VariablesGenerales.Empresa+"'");
 
         }
+
+        private void btn_nuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_Compra ObJCompra = new Frm_Compra("","N");
+            ObJCompra.ShowDialog();
+        }
     }
 }

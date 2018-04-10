@@ -179,6 +179,7 @@ namespace DXApplication1
                     MessageBox.Show("Actualizado Correctamente");
                 }
             }
+            _modo = "";
 
         }
         void LlegarGrilla()
