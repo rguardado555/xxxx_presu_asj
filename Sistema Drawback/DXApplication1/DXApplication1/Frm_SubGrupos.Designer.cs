@@ -45,6 +45,8 @@
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_salir = new DevExpress.XtraBars.BarButtonItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbo_grupo = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txt_codigo = new DevExpress.XtraEditors.TextEdit();
             this.txt_razonsocial = new DevExpress.XtraEditors.TextEdit();
@@ -53,18 +55,16 @@
             this.vista_datos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.COL_CODIGO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_GRUPO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.cbo_grupo = new DevExpress.XtraEditors.LookUpEdit();
             this.COL_SUBGRUPO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_IDGRUPO = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_grupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_codigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_razonsocial.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_grupo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // menu_opciones
@@ -163,15 +163,15 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.menu_opciones;
-            this.barDockControl1.Size = new System.Drawing.Size(814, 28);
+            this.barDockControl1.Size = new System.Drawing.Size(815, 28);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 270);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 268);
             this.barDockControl2.Manager = this.menu_opciones;
-            this.barDockControl2.Size = new System.Drawing.Size(814, 0);
+            this.barDockControl2.Size = new System.Drawing.Size(815, 0);
             // 
             // barDockControl3
             // 
@@ -179,15 +179,15 @@
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 28);
             this.barDockControl3.Manager = this.menu_opciones;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 242);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 240);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(814, 28);
+            this.barDockControl4.Location = new System.Drawing.Point(815, 28);
             this.barDockControl4.Manager = this.menu_opciones;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 242);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 240);
             // 
             // barButtonItem12
             // 
@@ -214,11 +214,34 @@
             this.groupControl1.Controls.Add(this.txt_codigo);
             this.groupControl1.Controls.Add(this.txt_razonsocial);
             this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Location = new System.Drawing.Point(4, 33);
+            this.groupControl1.Location = new System.Drawing.Point(2, 32);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(332, 233);
-            this.groupControl1.TabIndex = 34;
+            this.groupControl1.TabIndex = 40;
             this.groupControl1.Text = "Detalles";
+            // 
+            // cbo_grupo
+            // 
+            this.cbo_grupo.Location = new System.Drawing.Point(76, 54);
+            this.cbo_grupo.MenuManager = this.menu_opciones;
+            this.cbo_grupo.Name = "cbo_grupo";
+            this.cbo_grupo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.cbo_grupo.Properties.Appearance.Options.UseFont = true;
+            this.cbo_grupo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_grupo.Properties.NullText = "[Seleccionar]";
+            this.cbo_grupo.Size = new System.Drawing.Size(151, 24);
+            this.cbo_grupo.TabIndex = 20;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(13, 54);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(37, 17);
+            this.labelControl2.TabIndex = 19;
+            this.labelControl2.Text = "Grupo";
             // 
             // labelControl1
             // 
@@ -265,14 +288,14 @@
             this.dtg_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtg_datos.Location = new System.Drawing.Point(342, 33);
+            this.dtg_datos.Location = new System.Drawing.Point(340, 32);
             this.dtg_datos.MainView = this.vista_datos;
             this.dtg_datos.Name = "dtg_datos";
             this.dtg_datos.Size = new System.Drawing.Size(472, 233);
-            this.dtg_datos.TabIndex = 33;
+            this.dtg_datos.TabIndex = 39;
             this.dtg_datos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vista_datos});
-            this.dtg_datos.Click += new System.EventHandler(this.dtg_datos_Click);
+            this.dtg_datos.Click += new System.EventHandler(this.dtg_datos_Click_1);
             // 
             // vista_datos
             // 
@@ -313,29 +336,6 @@
             this.COL_GRUPO.VisibleIndex = 0;
             this.COL_GRUPO.Width = 109;
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(13, 54);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(37, 17);
-            this.labelControl2.TabIndex = 19;
-            this.labelControl2.Text = "Grupo";
-            // 
-            // cbo_grupo
-            // 
-            this.cbo_grupo.Location = new System.Drawing.Point(76, 54);
-            this.cbo_grupo.MenuManager = this.menu_opciones;
-            this.cbo_grupo.Name = "cbo_grupo";
-            this.cbo_grupo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cbo_grupo.Properties.Appearance.Options.UseFont = true;
-            this.cbo_grupo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_grupo.Properties.NullText = "[Seleccionar]";
-            this.cbo_grupo.Size = new System.Drawing.Size(151, 24);
-            this.cbo_grupo.TabIndex = 20;
-            // 
             // COL_SUBGRUPO
             // 
             this.COL_SUBGRUPO.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -359,7 +359,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 270);
+            this.ClientSize = new System.Drawing.Size(815, 268);
             this.ControlBox = false;
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.dtg_datos);
@@ -375,11 +375,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_grupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_codigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_razonsocial.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_grupo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

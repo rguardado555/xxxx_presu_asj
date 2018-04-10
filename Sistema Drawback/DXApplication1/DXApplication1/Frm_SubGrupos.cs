@@ -88,6 +88,7 @@ namespace DXApplication1
                     LlegarGrilla();
                     botones(true);
                     activartxt(false);
+                    _modo = "";
                     MessageBox.Show("Guardado Correctamente");
                 }
             }
@@ -99,6 +100,7 @@ namespace DXApplication1
                     LlegarGrilla();
                     botones(true);
                     activartxt(false);
+                    _modo = "";
                     MessageBox.Show("Actualizado Correctamente");
                 }
             }
@@ -146,6 +148,7 @@ namespace DXApplication1
 
         private void btn_cancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            _modo = "";
             botones(true);
             LlegarGrilla();
             limpiartxt();
@@ -154,17 +157,27 @@ namespace DXApplication1
 
         private void dtg_datos_Click(object sender, EventArgs e)
         {
-            try
-            {
-                txt_codigo.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_CODIGO));
-                txt_razonsocial.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_SUBGRUPO));
-                cbo_grupo.EditValue = Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_IDGRUPO));
 
-            }
-            catch
-            {
+        }
 
+        private void dtg_datos_Click_1(object sender, EventArgs e)
+        {
+            if (_modo.Equals(""))
+            {
+                try
+                {
+                    txt_codigo.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_CODIGO));
+                    txt_razonsocial.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_SUBGRUPO));
+                    cbo_grupo.EditValue = Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_IDGRUPO));
+
+                }
+                catch
+                {
+
+                }
             }
+
+
         }
     }
 }
