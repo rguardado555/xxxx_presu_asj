@@ -86,11 +86,7 @@ namespace DXApplication1
         {
             llenarsubgrupo(cbo_grupo.EditValue.ToString());
           
-            if (_modo.Equals("N"))
-            {
-                _idgrupo = cbo_grupo.EditValue.ToString();
-                txt_codigo.Text = _idgrupo + _idsubgrupo;
-            }
+          
         }
 
         private void btn_nuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -148,13 +144,13 @@ namespace DXApplication1
             if (_modo.Equals("N"))
             {
 
-                DataTable tb_table = new DataTable();
-                tb_table = NFunciones.TABLASQL("SELECT idproducto FROM tb_productos WHERE idempresa='"+VariablesGenerales.Empresa+"' AND idgrupopro='"+cbo_grupo.EditValue.ToString()+"' AND idsubgrupopro='"+cbo_subgrupo.EditValue.ToString()+"'");
-                if (tb_table.Rows.Count > 0)
-                {
-                    MessageBox.Show("Ya existe el codigo ingresado debe colocar uno que nuevo !");
-                    return;
-                }
+                //DataTable tb_table = new DataTable();
+                //tb_table = NFunciones.TABLASQL("SELECT idproducto FROM tb_productos WHERE idempresa='"+VariablesGenerales.Empresa+"' AND idgrupopro='"+cbo_grupo.EditValue.ToString()+"' AND idsubgrupopro='"+cbo_subgrupo.EditValue.ToString()+"'");
+                //if (tb_table.Rows.Count > 0)
+                //{
+                //    MessageBox.Show("Ya existe el codigo ingresado debe colocar uno que nuevo !");
+                //    return;
+                //}
 
 
                 string rpta = NFunciones.ExecuteSQL("insert into tb_productos(idempresa,idproducto,idgrupopro,idsubgrupopro,descripcion,idunidad,estado) values('"+VariablesGenerales.Empresa+"','"+txt_codigo.Text+"','"+cbo_grupo.EditValue.ToString()+"','"+cbo_subgrupo.EditValue.ToString()+"','"+txt_razonsocial.Text.ToUpper()+"','"+cbo_medida.EditValue.ToString()+"','1')");
@@ -219,6 +215,11 @@ namespace DXApplication1
                 }
 
             }
+        }
+
+        private void cbo_medida_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

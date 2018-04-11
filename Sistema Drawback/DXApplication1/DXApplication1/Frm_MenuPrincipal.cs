@@ -116,7 +116,7 @@ namespace DXApplication1
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (cbo_empresaseleccionada.Text.Equals("Seleccionar"))
+            if (cbo_empresaseleccionada.Text.Equals("[Seleccionar]"))
             {
                 MessageBox.Show("Seleccione Empresa Primero !!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

@@ -133,6 +133,18 @@
     <Compile Include="Frm_Productos.Designer.cs">
       <DependentUpon>Frm_Productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Duas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Duas.Designer.cs">
+      <DependentUpon>Frm_Duas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Venta.Designer.cs">
+      <DependentUpon>Frm_Venta.cs</DependentUpon>
+    </Compile>
     <Compile Include="iTalk Theme.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,6 +187,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_SubGrupos.resx">
       <DependentUpon>Frm_SubGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Duas.resx">
+      <DependentUpon>Frm_Duas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Venta.resx">
+      <DependentUpon>Frm_Venta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

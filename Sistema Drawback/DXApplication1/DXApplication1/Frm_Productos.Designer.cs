@@ -45,6 +45,10 @@
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_salir = new DevExpress.XtraBars.BarButtonItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbo_medida = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.cbo_subgrupo = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cbo_grupo = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -53,10 +57,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.dtg_datos = new DevExpress.XtraGrid.GridControl();
             this.vista_datos = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cbo_subgrupo = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.cbo_medida = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.COL_CODIGO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_PRODUCTO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_IDGRUPO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,13 +68,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_medida.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_subgrupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_grupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_codigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_razonsocial.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_subgrupo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_medida.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // menu_opciones
@@ -173,7 +173,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.menu_opciones;
-            this.barDockControl1.Size = new System.Drawing.Size(1248, 28);
+            this.barDockControl1.Size = new System.Drawing.Size(1248, 31);
             // 
             // barDockControl2
             // 
@@ -187,17 +187,17 @@
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 28);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 31);
             this.barDockControl3.Manager = this.menu_opciones;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 333);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 330);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1248, 28);
+            this.barDockControl4.Location = new System.Drawing.Point(1248, 31);
             this.barDockControl4.Manager = this.menu_opciones;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 333);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 330);
             // 
             // barButtonItem12
             // 
@@ -233,6 +233,54 @@
             this.groupControl1.Size = new System.Drawing.Size(332, 326);
             this.groupControl1.TabIndex = 36;
             this.groupControl1.Text = "Detalles";
+            // 
+            // cbo_medida
+            // 
+            this.cbo_medida.Location = new System.Drawing.Point(75, 240);
+            this.cbo_medida.MenuManager = this.menu_opciones;
+            this.cbo_medida.Name = "cbo_medida";
+            this.cbo_medida.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.cbo_medida.Properties.Appearance.Options.UseFont = true;
+            this.cbo_medida.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_medida.Properties.NullText = "[Seleccionar]";
+            this.cbo_medida.Size = new System.Drawing.Size(238, 24);
+            this.cbo_medida.TabIndex = 24;
+            this.cbo_medida.EditValueChanged += new System.EventHandler(this.cbo_medida_EditValueChanged);
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(12, 240);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(45, 17);
+            this.labelControl5.TabIndex = 23;
+            this.labelControl5.Text = "Medida";
+            // 
+            // cbo_subgrupo
+            // 
+            this.cbo_subgrupo.Location = new System.Drawing.Point(75, 191);
+            this.cbo_subgrupo.MenuManager = this.menu_opciones;
+            this.cbo_subgrupo.Name = "cbo_subgrupo";
+            this.cbo_subgrupo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.cbo_subgrupo.Properties.Appearance.Options.UseFont = true;
+            this.cbo_subgrupo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_subgrupo.Properties.NullText = "[Seleccionar]";
+            this.cbo_subgrupo.Size = new System.Drawing.Size(238, 24);
+            this.cbo_subgrupo.TabIndex = 22;
+            this.cbo_subgrupo.EditValueChanged += new System.EventHandler(this.cbo_subgrupo_EditValueChanged);
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(12, 191);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(59, 17);
+            this.labelControl4.TabIndex = 21;
+            this.labelControl4.Text = "SubGrupo";
             // 
             // cbo_grupo
             // 
@@ -328,53 +376,6 @@
             this.vista_datos.Name = "vista_datos";
             this.vista_datos.OptionsView.ShowGroupPanel = false;
             // 
-            // cbo_subgrupo
-            // 
-            this.cbo_subgrupo.Location = new System.Drawing.Point(75, 191);
-            this.cbo_subgrupo.MenuManager = this.menu_opciones;
-            this.cbo_subgrupo.Name = "cbo_subgrupo";
-            this.cbo_subgrupo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cbo_subgrupo.Properties.Appearance.Options.UseFont = true;
-            this.cbo_subgrupo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_subgrupo.Properties.NullText = "[Seleccionar]";
-            this.cbo_subgrupo.Size = new System.Drawing.Size(238, 24);
-            this.cbo_subgrupo.TabIndex = 22;
-            this.cbo_subgrupo.EditValueChanged += new System.EventHandler(this.cbo_subgrupo_EditValueChanged);
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(12, 191);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(59, 17);
-            this.labelControl4.TabIndex = 21;
-            this.labelControl4.Text = "SubGrupo";
-            // 
-            // cbo_medida
-            // 
-            this.cbo_medida.Location = new System.Drawing.Point(75, 240);
-            this.cbo_medida.MenuManager = this.menu_opciones;
-            this.cbo_medida.Name = "cbo_medida";
-            this.cbo_medida.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cbo_medida.Properties.Appearance.Options.UseFont = true;
-            this.cbo_medida.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_medida.Properties.NullText = "[Seleccionar]";
-            this.cbo_medida.Size = new System.Drawing.Size(238, 24);
-            this.cbo_medida.TabIndex = 24;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(12, 240);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(45, 17);
-            this.labelControl5.TabIndex = 23;
-            this.labelControl5.Text = "Medida";
-            // 
             // COL_CODIGO
             // 
             this.COL_CODIGO.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -423,7 +424,7 @@
             this.COL_GRUPO.Name = "COL_GRUPO";
             this.COL_GRUPO.OptionsColumn.AllowEdit = false;
             this.COL_GRUPO.Visible = true;
-            this.COL_GRUPO.VisibleIndex = 3;
+            this.COL_GRUPO.VisibleIndex = 2;
             // 
             // COL_IDSUBGRUPO
             // 
@@ -447,7 +448,7 @@
             this.COL_SUBGRUPO.Name = "COL_SUBGRUPO";
             this.COL_SUBGRUPO.OptionsColumn.AllowEdit = false;
             this.COL_SUBGRUPO.Visible = true;
-            this.COL_SUBGRUPO.VisibleIndex = 5;
+            this.COL_SUBGRUPO.VisibleIndex = 3;
             // 
             // COL_IDMEDIDA
             // 
@@ -471,7 +472,7 @@
             this.COL_MEDIDA.Name = "COL_MEDIDA";
             this.COL_MEDIDA.OptionsColumn.AllowEdit = false;
             this.COL_MEDIDA.Visible = true;
-            this.COL_MEDIDA.VisibleIndex = 7;
+            this.COL_MEDIDA.VisibleIndex = 4;
             // 
             // Productos
             // 
@@ -491,13 +492,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_medida.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_subgrupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_grupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_codigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_razonsocial.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_subgrupo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_medida.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
