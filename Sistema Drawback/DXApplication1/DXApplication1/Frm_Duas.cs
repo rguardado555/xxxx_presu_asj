@@ -22,5 +22,9 @@ namespace DXApplication1
         {
 
         }
+        void llenarCompras()
+        {
+
+        }
     }
 }

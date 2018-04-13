@@ -97,17 +97,17 @@
     <Compile Include="Frm_Kardex.Designer.cs">
       <DependentUpon>Frm_Kardex.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_lista_ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_lista_ventas.Designer.cs">
+      <DependentUpon>Frm_lista_ventas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_List_Compra.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_List_Compra.Designer.cs">
       <DependentUpon>Frm_List_Compra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_List_Ventas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_List_Ventas.Designer.cs">
-      <DependentUpon>Frm_List_Ventas.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
@@ -139,12 +139,6 @@
     <Compile Include="Frm_Duas.Designer.cs">
       <DependentUpon>Frm_Duas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Venta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Venta.Designer.cs">
-      <DependentUpon>Frm_Venta.cs</DependentUpon>
-    </Compile>
     <Compile Include="iTalk Theme.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,11 +164,11 @@
     <EmbeddedResource Include="Frm_Kardex.resx">
       <DependentUpon>Frm_Kardex.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_lista_ventas.resx">
+      <DependentUpon>Frm_lista_ventas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_List_Compra.resx">
       <DependentUpon>Frm_List_Compra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_List_Ventas.resx">
-      <DependentUpon>Frm_List_Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
@@ -190,9 +184,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Duas.resx">
       <DependentUpon>Frm_Duas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Venta.resx">
-      <DependentUpon>Frm_Venta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

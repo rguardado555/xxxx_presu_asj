@@ -17,5 +17,10 @@ namespace DXApplication1
         {
             InitializeComponent();
         }
+
+        private void btn_guardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

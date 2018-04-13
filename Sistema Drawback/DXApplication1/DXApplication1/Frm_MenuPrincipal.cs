@@ -89,7 +89,7 @@ namespace DXApplication1
                 MessageBox.Show("Debe Seleccionar Empresa Primero", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Frm_List_Ventas objlistVentas = new Frm_List_Ventas();
+            Frm_lista_ventas objlistVentas = new Frm_lista_ventas();
             objlistVentas.MdiParent = this;
             objlistVentas.Show();
         }

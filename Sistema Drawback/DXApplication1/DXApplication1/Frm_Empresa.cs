@@ -46,6 +46,10 @@ namespace DXApplication1
             txt_direccion.Enabled = valor;
             txt_email.Enabled = valor;
             txt_telefono.Enabled = valor;
+            txt_tcambio.Enabled = valor;
+            txt_codigoaduanas.Enabled = valor;
+            txt_regimen.Enabled = valor;
+            txt_porc_drawback.Enabled = valor;
         }
 
         private void btn_guardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -75,7 +79,21 @@ namespace DXApplication1
                 MessageBox.Show("Debe Ingresar Razon Social !");
                 return;
             }
-
+            if (txt_tcambio.Text.Equals(""))
+            {
+                MessageBox.Show("Debe Ingresar Tipo de Cambio !");
+                return;
+            }
+            if (txt_codigoaduanas.Text.Equals(""))
+            {
+                MessageBox.Show("Debe Ingresar Codigo Aduanas !");
+                return;
+            }
+            if (txt_regimen.Text.Equals(""))
+            {
+                MessageBox.Show("Debe Ingresar Codigo de Regimen !");
+                return;
+            }
 
 
 
@@ -92,7 +110,7 @@ namespace DXApplication1
                 }
 
 
-                string rpta = NFunciones.ExecuteSQL("insert into tb_empresa (idempresa,razonsocial,direccion,telef,email,ruc) values('" + txt_codempresa.Text.ToUpper() + "','" + txt_razonsocial.Text.ToUpper() + "','" + txt_direccion.Text.ToUpper() + "','" + txt_telefono.Text.ToUpper() + "','" + txt_email.Text.ToUpper() + "','" + txt_ruc.Text.ToUpper() + "')");
+                string rpta = NFunciones.ExecuteSQL("insert into tb_empresa (idempresa,razonsocial,direccion,telef,email,ruc,TC,codigo_aduanas,regimen,porc_drawback) values('" + txt_codempresa.Text.ToUpper() + "','" + txt_razonsocial.Text.ToUpper() + "','" + txt_direccion.Text.ToUpper() + "','" + txt_telefono.Text.ToUpper() + "','" + txt_email.Text.ToUpper() + "','" + txt_ruc.Text.ToUpper() + "','" + txt_tcambio.Text.ToUpper() + "','" + txt_codigoaduanas.Text.ToUpper() + "','" + txt_regimen.Text.ToUpper() + "','"+txt_porc_drawback.Text+"')");
                 if (rpta.Equals("Ok"))
                 {
                     LlegarGrilla();
@@ -103,7 +121,7 @@ namespace DXApplication1
             }
             if (_modo.Equals("E"))
             {
-                string rpta = NFunciones.ExecuteSQL("UPDATE tb_empresa SET razonsocial='"+txt_razonsocial.Text.ToUpper()+"',direccion='"+txt_direccion.Text.ToUpper()+"',telef='"+txt_telefono.Text.ToUpper()+"',email='"+txt_email.Text.ToUpper()+"',ruc='"+txt_ruc.Text.ToUpper()+"' WHERE idempresa='"+txt_codempresa.Text+"'");
+                string rpta = NFunciones.ExecuteSQL("UPDATE tb_empresa SET razonsocial='"+txt_razonsocial.Text.ToUpper()+"',direccion='"+txt_direccion.Text.ToUpper()+"',telef='"+txt_telefono.Text.ToUpper()+"',email='"+txt_email.Text.ToUpper()+"',ruc='"+txt_ruc.Text.ToUpper()+ "',TC='"+txt_tcambio.Text+ "',codigo_aduanas='"+txt_codigoaduanas.Text+ "', regimen='"+txt_regimen.Text+ "',porc_drawback='"+txt_porc_drawback.Text+"'   WHERE idempresa='" + txt_codempresa.Text+"'");
                 if (rpta.Equals("Ok"))
                 {
                     LlegarGrilla();
@@ -119,7 +137,7 @@ namespace DXApplication1
         }
         void LlegarGrilla()
         {
-            dtg_datos.DataSource = NFunciones.TABLASQL("SELECT IDEMPRESA,RAZONSOCIAL,DIRECCION,telef TELEFONO,email EMAIL,RUC FROM tb_empresa ORDER BY idempresa ASC");
+            dtg_datos.DataSource = NFunciones.TABLASQL("SELECT IDEMPRESA,RAZONSOCIAL,DIRECCION,telef TELEFONO,email EMAIL,RUC,TC,codigo_aduanas CODIGOADUANAS,regimen CODIGOREGIMEN,porc_drawback  FROM tb_empresa ORDER BY idempresa ASC");
         }
        
         void limpiartxt()
@@ -130,6 +148,10 @@ namespace DXApplication1
             txt_direccion.Text = "";
             txt_email.Text = "";
             txt_telefono.Text = "";
+            txt_tcambio.Text = "";
+            txt_codigoaduanas.Text = "";
+            txt_regimen.Text = "";
+            txt_porc_drawback.Text = "";
         }
 
 
@@ -156,7 +178,10 @@ namespace DXApplication1
                 txt_ruc.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_ruc));
                 txt_telefono.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_telefono));
                 txt_email.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_email));
-
+                txt_tcambio.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_tc));
+                txt_codigoaduanas.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_codigoaduanas));
+                txt_regimen.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_codregimen));
+                txt_porc_drawback.Text = Convert.ToString(vista_datos.GetFocusedRowCellValue(col_porcDrawBack));
             }
             catch
             {
