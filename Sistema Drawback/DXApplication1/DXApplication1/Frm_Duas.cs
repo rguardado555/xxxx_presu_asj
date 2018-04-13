@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using CapaNegocios;
+
 
 namespace DXApplication1
 {
@@ -24,7 +26,7 @@ namespace DXApplication1
         }
         void llenarCompras()
         {
-
+            cbo_docexportacion.Properties.DataSource = NFunciones.TABLASQL("");
         }
     }
 }
