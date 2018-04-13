@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace DXApplication1
+namespace ModuloPresupuesto
 {
-    public partial class Frm_List_Ventas : DevExpress.XtraEditors.XtraForm
+    public partial class Frm_ImportarUnidades : DevExpress.XtraEditors.XtraForm
     {
-        public Frm_List_Ventas()
+        public Frm_ImportarUnidades()
         {
             InitializeComponent();
         }
 
-        private void Frm_List_Ventas_Load(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
