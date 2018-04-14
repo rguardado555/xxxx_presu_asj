@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Compra));
             this.COL_SUBTOTAL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.monoFlat_Panel1 = new MonoFlat.MonoFlat_Panel();
@@ -213,6 +213,7 @@
             this.txt_id.Properties.ReadOnly = true;
             this.txt_id.Size = new System.Drawing.Size(27, 24);
             this.txt_id.TabIndex = 18;
+            this.txt_id.Visible = false;
             // 
             // txt_operacion
             // 
@@ -249,6 +250,7 @@
             this.dtp_fechaoperacion.Properties.ReadOnly = true;
             this.dtp_fechaoperacion.Size = new System.Drawing.Size(147, 24);
             this.dtp_fechaoperacion.TabIndex = 15;
+            this.dtp_fechaoperacion.Visible = false;
             // 
             // monoFlat_Label7
             // 
@@ -261,6 +263,7 @@
             this.monoFlat_Label7.Size = new System.Drawing.Size(106, 17);
             this.monoFlat_Label7.TabIndex = 14;
             this.monoFlat_Label7.Text = "Fecha Operación";
+            this.monoFlat_Label7.Visible = false;
             // 
             // monoFlat_Label6
             // 
@@ -444,11 +447,11 @@
             this.COL_MEDIDA,
             this.COL_CANTIDAD,
             this.COL_PRODUCTO});
-            gridFormatRule1.ColumnApplyTo = this.COL_SUBTOTAL;
-            gridFormatRule1.Name = "Format0";
-            formatConditionRuleExpression1.Expression = "[PRECIOUNIT] * [CANTIDAD]";
-            gridFormatRule1.Rule = formatConditionRuleExpression1;
-            this.vista_datos.FormatRules.Add(gridFormatRule1);
+            gridFormatRule2.ColumnApplyTo = this.COL_SUBTOTAL;
+            gridFormatRule2.Name = "Format0";
+            formatConditionRuleExpression2.Expression = "[PRECIOUNIT] * [CANTIDAD]";
+            gridFormatRule2.Rule = formatConditionRuleExpression2;
+            this.vista_datos.FormatRules.Add(gridFormatRule2);
             this.vista_datos.GridControl = this.dtg_datos;
             this.vista_datos.Name = "vista_datos";
             this.vista_datos.OptionsView.ShowFooter = true;
@@ -731,6 +734,7 @@
             this.btn_eliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.Image")));
             this.btn_eliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.LargeImage")));
             this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_eliminar_ItemClick);
             // 
             // btn_addDetalle
             // 

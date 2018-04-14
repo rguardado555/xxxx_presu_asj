@@ -26,7 +26,8 @@ namespace DXApplication1
         }
         void llenarCompras()
         {
-            cbo_docexportacion.Properties.DataSource = NFunciones.TABLASQL("");
+            cbo_docexportacion.Properties.DataSource = NFunciones.TABLASQL(" ");
+
         }
     }
 }

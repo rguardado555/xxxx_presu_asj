@@ -92,6 +92,7 @@ namespace DXApplication1
             LlegarGrilla();
             llenarmedida();
             llenarmoneda();
+
             if (_idoperacion.Equals("C"))
             {
                 txt_idoperacion.Text = "C";
@@ -565,12 +566,25 @@ namespace DXApplication1
                     }
                 }
             }
-         //--------validado
+            //--------validado
+
+            DateTime tfechadoc;
+            DateTime tfechaope;
+            tfechadoc = Convert.ToDateTime(dtp_fechadoc.EditValue);
+            tfechaope = Convert.ToDateTime(dtp_fechaoperacion.EditValue);
+
+            //-----yyyyMMdd
+
+            string fechadoc = tfechadoc.ToString("dd-MM-yyyy");
+            string fechaope = tfechaope.ToString("dd-MM-yyyy");
+
+
+            MessageBox.Show(fechadoc+" - "+ tfechaope);
 
             if (_opcion.Equals("N"))
             {
                 string mensaje="";
-                string cabecera = NFunciones.ExecuteSQL("insert into tb_cobrarpagardoc(idcobrarpagardoc,idempresa,iddocumento,serie,numero,idclieprov,fecha,fechaoperacion,razonsocial,estado,tipo,idmoneda,TC)values('"+txt_id.Text+"','"+VariablesGenerales.Empresa+"','"+cbo_documento.EditValue.ToString()+"','"+txt_serie.Text+"','"+txt_numero.Text+"','"+cbo_clieprov.EditValue.ToString()+"','"+Convert.ToDateTime(dtp_fechadoc.EditValue)+"','"+ Convert.ToDateTime(dtp_fechaoperacion.EditValue) + "','"+cbo_clieprov.Text.ToUpper()+"','1','"+txt_idoperacion.Text+ "','" + cbo_moneda.EditValue.ToString() + "','"+txt_tc.Text+"')");
+                string cabecera = NFunciones.ExecuteSQL("insert into tb_cobrarpagardoc(idcobrarpagardoc,idempresa,iddocumento,serie,numero,idclieprov,razonsocial,estado,tipo,idmoneda,TC,fecha)values('"+txt_id.Text+"','"+VariablesGenerales.Empresa+"','"+cbo_documento.EditValue.ToString()+"','"+txt_serie.Text+"','"+txt_numero.Text+"','"+cbo_clieprov.EditValue.ToString()+"','"+cbo_clieprov.Text.ToUpper()+"','1','"+txt_idoperacion.Text+ "','" + cbo_moneda.EditValue.ToString() + "','"+txt_tc.Text+"','"+fechadoc+ "')");
                 if (cabecera.Equals("Ok"))
                 {
                     for (int i = 0; i < vista_datos.RowCount; i++)
@@ -645,7 +659,6 @@ namespace DXApplication1
             if (tc.Rows.Count>0)
             {
                 MessageBox.Show("No a Ingresado Tipo de Cambio en la Configuración de la empresa","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-
             }
             else
             {
@@ -695,6 +708,32 @@ namespace DXApplication1
             LlegarGrilla();
             activartxt(false);
             _opcion = "";
+        }
+
+        private void btn_eliminar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DataTable tb_op = NFunciones.TABLASQL("select * from tb_docreferencia where idempresa='"+VariablesGenerales.Empresa+"' and iddocdestino='"+txt_id.Text+"'");
+            if (tb_op.Rows.Count>0)
+            {
+                MessageBox.Show("No se Puede Eliminar el Documento esta Referenciado a otro Documento ","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                DialogResult Result = MessageBox.Show("Esta Seguro de Eliminar el Documento","Verificación !",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (Result==DialogResult.Yes)
+                {
+                    string eliminarcabecera = NFunciones.ExecuteSQL("DELETE tb_cobrarpagardoc WHERE IDEMPRESA='"+VariablesGenerales.Empresa+ "' AND idcobrarpagardoc='" + txt_id.Text+"'");
+
+                    limpiartxt();
+                    txt_id.Text = "";
+                    LlegarGrilla();
+                    MessageBox.Show("Se Elimino Correctamente","Confirmación",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                }
+
+
+            }
         }
     }
 }

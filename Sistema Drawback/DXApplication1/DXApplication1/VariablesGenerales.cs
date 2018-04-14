@@ -10,5 +10,7 @@ namespace DXApplication1
     {
         public static string tipooperacion = "";
         public static string Empresa = "";
+        public static string refrescompras = "N";
+        public static string refresventas = "N";
     }
 }
