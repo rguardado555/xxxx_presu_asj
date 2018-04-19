@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Compra));
             this.COL_SUBTOTAL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.monoFlat_Panel1 = new MonoFlat.MonoFlat_Panel();
+            this.monoFlat_Label10 = new MonoFlat.MonoFlat_Label();
+            this.txt_fecha = new DevExpress.XtraEditors.TextEdit();
             this.txt_tc = new System.Windows.Forms.MaskedTextBox();
             this.monoFlat_Label9 = new MonoFlat.MonoFlat_Label();
             this.cbo_moneda = new DevExpress.XtraEditors.LookUpEdit();
@@ -87,6 +89,7 @@
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_salir = new DevExpress.XtraBars.BarButtonItem();
             this.monoFlat_Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_fecha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_moneda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_operacion.Properties)).BeginInit();
@@ -132,6 +135,8 @@
             this.monoFlat_Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.monoFlat_Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label10);
+            this.monoFlat_Panel1.Controls.Add(this.txt_fecha);
             this.monoFlat_Panel1.Controls.Add(this.txt_tc);
             this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label9);
             this.monoFlat_Panel1.Controls.Add(this.cbo_moneda);
@@ -158,6 +163,27 @@
             this.monoFlat_Panel1.Size = new System.Drawing.Size(1072, 150);
             this.monoFlat_Panel1.TabIndex = 0;
             this.monoFlat_Panel1.Text = "monoFlat_Panel1";
+            // 
+            // monoFlat_Label10
+            // 
+            this.monoFlat_Label10.AutoSize = true;
+            this.monoFlat_Label10.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label10.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label10.Location = new System.Drawing.Point(850, 82);
+            this.monoFlat_Label10.Name = "monoFlat_Label10";
+            this.monoFlat_Label10.Size = new System.Drawing.Size(60, 17);
+            this.monoFlat_Label10.TabIndex = 25;
+            this.monoFlat_Label10.Text = "Fcha doc";
+            // 
+            // txt_fecha
+            // 
+            this.txt_fecha.Location = new System.Drawing.Point(853, 113);
+            this.txt_fecha.Name = "txt_fecha";
+            this.txt_fecha.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_fecha.Properties.Appearance.Options.UseFont = true;
+            this.txt_fecha.Size = new System.Drawing.Size(90, 24);
+            this.txt_fecha.TabIndex = 24;
             // 
             // txt_tc
             // 
@@ -290,6 +316,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtp_fechadoc.Size = new System.Drawing.Size(139, 24);
             this.dtp_fechadoc.TabIndex = 12;
+            this.dtp_fechadoc.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.dtp_fechadoc_EditValueChanging);
             // 
             // cbo_clieprov
             // 
@@ -447,11 +474,11 @@
             this.COL_MEDIDA,
             this.COL_CANTIDAD,
             this.COL_PRODUCTO});
-            gridFormatRule2.ColumnApplyTo = this.COL_SUBTOTAL;
-            gridFormatRule2.Name = "Format0";
-            formatConditionRuleExpression2.Expression = "[PRECIOUNIT] * [CANTIDAD]";
-            gridFormatRule2.Rule = formatConditionRuleExpression2;
-            this.vista_datos.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.ColumnApplyTo = this.COL_SUBTOTAL;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleExpression1.Expression = "[PRECIOUNIT] * [CANTIDAD]";
+            gridFormatRule1.Rule = formatConditionRuleExpression1;
+            this.vista_datos.FormatRules.Add(gridFormatRule1);
             this.vista_datos.GridControl = this.dtg_datos;
             this.vista_datos.Name = "vista_datos";
             this.vista_datos.OptionsView.ShowFooter = true;
@@ -769,7 +796,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.menu_opciones;
-            this.barDockControl1.Size = new System.Drawing.Size(1076, 31);
+            this.barDockControl1.Size = new System.Drawing.Size(1076, 28);
             // 
             // barDockControl2
             // 
@@ -783,17 +810,17 @@
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 31);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 28);
             this.barDockControl3.Manager = this.menu_opciones;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 478);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 481);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1076, 31);
+            this.barDockControl4.Location = new System.Drawing.Point(1076, 28);
             this.barDockControl4.Manager = this.menu_opciones;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 478);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 481);
             // 
             // barButtonItem12
             // 
@@ -829,6 +856,7 @@
             this.Load += new System.EventHandler(this.Frm_Compra_Load);
             this.monoFlat_Panel1.ResumeLayout(false);
             this.monoFlat_Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_fecha.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_moneda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_operacion.Properties)).EndInit();
@@ -910,5 +938,7 @@
         private MonoFlat.MonoFlat_Label monoFlat_Label8;
         private MonoFlat.MonoFlat_Label monoFlat_Label9;
         private System.Windows.Forms.MaskedTextBox txt_tc;
+        private MonoFlat.MonoFlat_Label monoFlat_Label10;
+        private DevExpress.XtraEditors.TextEdit txt_fecha;
     }
 }

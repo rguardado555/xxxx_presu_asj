@@ -144,6 +144,13 @@ namespace DXApplication1
                 MessageBox.Show("Debe Seleccionar Empresa Primero", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            else
+            {
+                Frm_Lista_Duas ObJDuas = new Frm_Lista_Duas();
+                ObJDuas.MdiParent = this;
+                ObJDuas.Show();
+
+            }
         }
 
         private void btn_txt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

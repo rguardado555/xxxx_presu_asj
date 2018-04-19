@@ -65,5 +65,14 @@ namespace DXApplication1
 
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (VariablesGenerales.refrescompras.Equals("S"))
+            {
+                VariablesGenerales.refrescompras = "N";
+                LlegarGrilla();
+            }
+        }
     }
 }

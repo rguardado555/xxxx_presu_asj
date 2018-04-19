@@ -62,5 +62,19 @@ namespace DXApplication1
 
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (VariablesGenerales.refresventas.Equals("S"))
+            {
+                VariablesGenerales.refresventas = "N";
+                LlegarGrilla();
+            }
+        }
+
+        private void btn_eliminar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

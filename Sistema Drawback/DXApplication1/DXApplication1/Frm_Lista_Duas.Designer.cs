@@ -1,6 +1,6 @@
 ﻿namespace DXApplication1
 {
-    partial class Frm_lista_ventas
+    partial class Frm_Lista_Duas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_lista_ventas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Lista_Duas));
             this.menu_opciones = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btn_nuevo = new DevExpress.XtraBars.BarButtonItem();
@@ -44,15 +44,15 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dtg_datos = new DevExpress.XtraGrid.GridControl();
             this.vista_datos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.COL_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_DOCUMENTO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_CODCLIENTE = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_RAZONSOCIAL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_ESTADO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_FECHA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.COL_FOB = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).BeginInit();
@@ -110,7 +110,6 @@
             this.btn_editar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_editar.ImageOptions.Image")));
             this.btn_editar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_editar.ImageOptions.LargeImage")));
             this.btn_editar.Name = "btn_editar";
-            this.btn_editar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_editar_ItemClick);
             // 
             // btn_eliminar
             // 
@@ -145,15 +144,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.menu_opciones;
-            this.barDockControlTop.Size = new System.Drawing.Size(829, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(865, 51);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 392);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 391);
             this.barDockControlBottom.Manager = this.menu_opciones;
-            this.barDockControlBottom.Size = new System.Drawing.Size(829, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(865, 0);
             // 
             // barDockControlLeft
             // 
@@ -161,15 +160,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
             this.barDockControlLeft.Manager = this.menu_opciones;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 341);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 340);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(829, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(865, 51);
             this.barDockControlRight.Manager = this.menu_opciones;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 341);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 340);
             // 
             // barButtonItem2
             // 
@@ -193,29 +192,33 @@
             this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
             this.barButtonItem5.Name = "barButtonItem5";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            // 
             // dtg_datos
             // 
             this.dtg_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtg_datos.Location = new System.Drawing.Point(0, 53);
+            this.dtg_datos.Location = new System.Drawing.Point(0, 57);
             this.dtg_datos.MainView = this.vista_datos;
             this.dtg_datos.Name = "dtg_datos";
-            this.dtg_datos.Size = new System.Drawing.Size(829, 338);
-            this.dtg_datos.TabIndex = 5;
+            this.dtg_datos.Size = new System.Drawing.Size(865, 338);
+            this.dtg_datos.TabIndex = 4;
             this.dtg_datos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vista_datos});
-            this.dtg_datos.DoubleClick += new System.EventHandler(this.dtg_datos_DoubleClick);
             // 
             // vista_datos
             // 
             this.vista_datos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.COL_ID,
             this.COL_DOCUMENTO,
-            this.COL_CODCLIENTE,
-            this.COL_RAZONSOCIAL,
             this.COL_ESTADO,
-            this.COL_FECHA});
+            this.COL_FECHA,
+            this.COL_FOB,
+            this.gridColumn1});
             this.vista_datos.GridControl = this.dtg_datos;
             this.vista_datos.Name = "vista_datos";
             this.vista_datos.OptionsFind.AllowFindPanel = false;
@@ -233,7 +236,7 @@
             this.COL_ID.OptionsColumn.AllowEdit = false;
             this.COL_ID.Visible = true;
             this.COL_ID.VisibleIndex = 0;
-            this.COL_ID.Width = 107;
+            this.COL_ID.Width = 122;
             // 
             // COL_DOCUMENTO
             // 
@@ -247,35 +250,7 @@
             this.COL_DOCUMENTO.OptionsColumn.AllowEdit = false;
             this.COL_DOCUMENTO.Visible = true;
             this.COL_DOCUMENTO.VisibleIndex = 1;
-            this.COL_DOCUMENTO.Width = 140;
-            // 
-            // COL_CODCLIENTE
-            // 
-            this.COL_CODCLIENTE.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.COL_CODCLIENTE.AppearanceCell.Options.UseFont = true;
-            this.COL_CODCLIENTE.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.COL_CODCLIENTE.AppearanceHeader.Options.UseFont = true;
-            this.COL_CODCLIENTE.Caption = "CODIGO CLIENTE";
-            this.COL_CODCLIENTE.FieldName = "IDCLIEPROV";
-            this.COL_CODCLIENTE.Name = "COL_CODCLIENTE";
-            this.COL_CODCLIENTE.OptionsColumn.AllowEdit = false;
-            this.COL_CODCLIENTE.Visible = true;
-            this.COL_CODCLIENTE.VisibleIndex = 2;
-            this.COL_CODCLIENTE.Width = 140;
-            // 
-            // COL_RAZONSOCIAL
-            // 
-            this.COL_RAZONSOCIAL.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.COL_RAZONSOCIAL.AppearanceCell.Options.UseFont = true;
-            this.COL_RAZONSOCIAL.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.COL_RAZONSOCIAL.AppearanceHeader.Options.UseFont = true;
-            this.COL_RAZONSOCIAL.Caption = "RAZON SOCIAL";
-            this.COL_RAZONSOCIAL.FieldName = "RAZONSOCIAL";
-            this.COL_RAZONSOCIAL.Name = "COL_RAZONSOCIAL";
-            this.COL_RAZONSOCIAL.OptionsColumn.AllowEdit = false;
-            this.COL_RAZONSOCIAL.Visible = true;
-            this.COL_RAZONSOCIAL.VisibleIndex = 3;
-            this.COL_RAZONSOCIAL.Width = 140;
+            this.COL_DOCUMENTO.Width = 159;
             // 
             // COL_ESTADO
             // 
@@ -288,8 +263,8 @@
             this.COL_ESTADO.Name = "COL_ESTADO";
             this.COL_ESTADO.OptionsColumn.AllowEdit = false;
             this.COL_ESTADO.Visible = true;
-            this.COL_ESTADO.VisibleIndex = 5;
-            this.COL_ESTADO.Width = 140;
+            this.COL_ESTADO.VisibleIndex = 3;
+            this.COL_ESTADO.Width = 154;
             // 
             // COL_FECHA
             // 
@@ -302,27 +277,37 @@
             this.COL_FECHA.Name = "COL_FECHA";
             this.COL_FECHA.OptionsColumn.AllowEdit = false;
             this.COL_FECHA.Visible = true;
-            this.COL_FECHA.VisibleIndex = 4;
+            this.COL_FECHA.VisibleIndex = 2;
+            this.COL_FECHA.Width = 94;
             // 
-            // timer1
+            // COL_FOB
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.COL_FOB.Caption = "FOB X RESTITUIR";
+            this.COL_FOB.FieldName = "FOB";
+            this.COL_FOB.Name = "COL_FOB";
+            this.COL_FOB.Visible = true;
+            this.COL_FOB.VisibleIndex = 4;
             // 
-            // Frm_lista_ventas
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "EXP";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 5;
+            // 
+            // Frm_Lista_Duas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 392);
+            this.ClientSize = new System.Drawing.Size(865, 391);
             this.Controls.Add(this.dtg_datos);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "Frm_lista_ventas";
-            this.Text = "Listado de Ventas";
-            this.Load += new System.EventHandler(this.Frm_lista_ventas_Load);
+            this.Name = "Frm_Lista_Duas";
+            this.Text = "Frm_Lista_Duas";
+            this.Load += new System.EventHandler(this.Frm_Lista_Duas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).EndInit();
@@ -347,14 +332,14 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraGrid.GridControl dtg_datos;
         private DevExpress.XtraGrid.Views.Grid.GridView vista_datos;
         private DevExpress.XtraGrid.Columns.GridColumn COL_ID;
         private DevExpress.XtraGrid.Columns.GridColumn COL_DOCUMENTO;
-        private DevExpress.XtraGrid.Columns.GridColumn COL_CODCLIENTE;
-        private DevExpress.XtraGrid.Columns.GridColumn COL_RAZONSOCIAL;
         private DevExpress.XtraGrid.Columns.GridColumn COL_ESTADO;
         private DevExpress.XtraGrid.Columns.GridColumn COL_FECHA;
-        private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraGrid.Columns.GridColumn COL_FOB;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

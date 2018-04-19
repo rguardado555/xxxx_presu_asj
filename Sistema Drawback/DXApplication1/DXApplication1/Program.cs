@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
-
+using System.Data;
 namespace DXApplication1
 {
     static class Program
@@ -13,6 +13,11 @@ namespace DXApplication1
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        // --- datos del documento de venta
+        public static DataTable detalleinsumos;
+
+       
         [STAThread]
         static void Main()
         {

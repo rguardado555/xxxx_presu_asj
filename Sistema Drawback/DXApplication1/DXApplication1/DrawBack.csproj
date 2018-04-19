@@ -97,6 +97,18 @@
     <Compile Include="Frm_Kardex.Designer.cs">
       <DependentUpon>Frm_Kardex.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_ListadoInsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_ListadoInsumos.Designer.cs">
+      <DependentUpon>Frm_ListadoInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Lista_Duas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Lista_Duas.Designer.cs">
+      <DependentUpon>Frm_Lista_Duas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_lista_ventas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +175,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Kardex.resx">
       <DependentUpon>Frm_Kardex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_ListadoInsumos.resx">
+      <DependentUpon>Frm_ListadoInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Lista_Duas.resx">
+      <DependentUpon>Frm_Lista_Duas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_lista_ventas.resx">
       <DependentUpon>Frm_lista_ventas.cs</DependentUpon>

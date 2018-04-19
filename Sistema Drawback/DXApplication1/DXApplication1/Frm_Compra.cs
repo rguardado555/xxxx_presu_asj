@@ -507,6 +507,11 @@ namespace DXApplication1
                 MessageBox.Show("Debe Ingresar Proveedor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (dtp_fechadoc.Text.Equals(""))
+            {
+                MessageBox.Show("Debe Ingresar Fecha Documento", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (cbo_documento.Text.Equals("[Seleccione]") || cbo_documento.Text.Equals(""))
             {
@@ -568,35 +573,42 @@ namespace DXApplication1
             }
             //--------validado
 
-            DateTime tfechadoc;
-            DateTime tfechaope;
-            tfechadoc = Convert.ToDateTime(dtp_fechadoc.EditValue);
-            tfechaope = Convert.ToDateTime(dtp_fechaoperacion.EditValue);
-
-            //-----yyyyMMdd
-
-            string fechadoc = tfechadoc.ToString("dd-MM-yyyy");
-            string fechaope = tfechaope.ToString("dd-MM-yyyy");
-
-
-            MessageBox.Show(fechadoc+" - "+ tfechaope);
+         
 
             if (_opcion.Equals("N"))
             {
                 string mensaje="";
-                string cabecera = NFunciones.ExecuteSQL("insert into tb_cobrarpagardoc(idcobrarpagardoc,idempresa,iddocumento,serie,numero,idclieprov,razonsocial,estado,tipo,idmoneda,TC,fecha)values('"+txt_id.Text+"','"+VariablesGenerales.Empresa+"','"+cbo_documento.EditValue.ToString()+"','"+txt_serie.Text+"','"+txt_numero.Text+"','"+cbo_clieprov.EditValue.ToString()+"','"+cbo_clieprov.Text.ToUpper()+"','1','"+txt_idoperacion.Text+ "','" + cbo_moneda.EditValue.ToString() + "','"+txt_tc.Text+"','"+fechadoc+ "')");
+                string cabecera = NFunciones.ExecuteSQL("insert into tb_cobrarpagardoc(idcobrarpagardoc,idempresa,iddocumento,serie,numero,idclieprov,razonsocial,estado,tipo,idmoneda,TC,fecha)values('"+txt_id.Text+"','"+VariablesGenerales.Empresa+"','"+cbo_documento.EditValue.ToString()+"','"+txt_serie.Text+"','"+txt_numero.Text+"','"+cbo_clieprov.EditValue.ToString()+"','"+cbo_clieprov.Text.ToUpper()+"','1','"+txt_idoperacion.Text+ "','" + cbo_moneda.EditValue.ToString() + "','"+txt_tc.Text+ "',Convert(DATE,'"+dtp_fechadoc.Text+ "',103))");
                 if (cabecera.Equals("Ok"))
                 {
                     for (int i = 0; i < vista_datos.RowCount; i++)
                     {
                         int item = i + 1;
                         string detalle = NFunciones.ExecuteSQL("insert into tb_dcobrarpagardoc (idempresa,idcobrarpagardoc,item,idproducto,descripcion,idunidad,cantidad,porc_imp,imp,preciounit,preciototal,idmoneda,TC) values('"+VariablesGenerales.Empresa+"','"+txt_id.Text+"','"+ item + "','"+ vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal( vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMP)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMPUESTO)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_PRECIOUNIT)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_TOTAL)) + "','" + cbo_moneda.EditValue.ToString() + "','" + txt_tc.Text + "')");
+
+                        if (txt_idoperacion.Text.Equals("C"))
+                        {
+                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idtransaccion,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor,cantidadorigen) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','1','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "')");
+                        }
+                        if (txt_idoperacion.Text.Equals("V"))
+                        {
+                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idtransaccion,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor,cantidadorigen) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','-1','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "')");
+                        }
+
                     }
                     MessageBox.Show("Guardado Correctamente");
                     botones(true);
                     LlegarGrilla();
                     activartxt(false);
+                    if (txt_idoperacion.Text.Equals("C"))
+                    {
+                        VariablesGenerales.refrescompras = "S";
+                    }
 
+                    if (txt_idoperacion.Text.Equals("V"))
+                    {
+                        VariablesGenerales.refresventas = "S";
+                    }
                 }
                 else
                 {
@@ -604,26 +616,47 @@ namespace DXApplication1
                     return;
                 }
             }
-            if (_opcion.Equals("E"))
+
+            //-------------actualizar
+           
+              if (_opcion.Equals("E"))
             {
-                string rpta = NFunciones.ExecuteSQL("update tb_cobrarpagardoc set   iddocumento='"+cbo_documento.EditValue.ToString()+"',serie='"+txt_serie.Text+"',numero='"+txt_numero.Text+"', idclieprov='"+cbo_clieprov.EditValue.ToString()+"', fechaoperacion='"+ Convert.ToDateTime(dtp_fechaoperacion.EditValue) + "',razonsocial='"+cbo_clieprov.Text.ToString()+"',idmoneda='"+cbo_moneda.EditValue.ToString()+"',TC='"+txt_tc.Text+"'    where idcobrarpagardoc='" + txt_id.Text+"' and idempresa='"+VariablesGenerales.Empresa+"'");
-                string del = NFunciones.ExecuteSQL("delete tb_dcobrarpagardoc where idempresa='"+VariablesGenerales.Empresa+"' and idcobrarpagardoc='"+txt_id.Text+"'");
+                string rpta = NFunciones.ExecuteSQL("update tb_cobrarpagardoc set   iddocumento='" + cbo_documento.EditValue.ToString() + "',serie='" + txt_serie.Text + "',numero='" + txt_numero.Text + "', idclieprov='" + cbo_clieprov.EditValue.ToString() + "',razonsocial='" + cbo_clieprov.Text.ToString() + "',idmoneda='" + cbo_moneda.EditValue.ToString() + "',TC='" + txt_tc.Text + "',fecha = Convert(DATE,'" + dtp_fechadoc.Text + "',103)    where idcobrarpagardoc='" + txt_id.Text + "' and idempresa='" + VariablesGenerales.Empresa + "'");
+                string del = NFunciones.ExecuteSQL("delete tb_dcobrarpagardoc where idempresa='" + VariablesGenerales.Empresa + "' and idcobrarpagardoc='" + txt_id.Text + "'");
+                string delmov = NFunciones.ExecuteSQL("delete tb_movcobrarpagardoc_drakback where idempresa='" + VariablesGenerales.Empresa + "' and idcobrarpagardoc='" + txt_id.Text + "'");
+
                 if (rpta.Equals("Ok"))
                 {
                     //---agregar
                     for (int i = 0; i < vista_datos.RowCount; i++)
                     {
                         int item = i + 1;
-                        string detalle = NFunciones.ExecuteSQL("insert into tb_dcobrarpagardoc (idempresa,idcobrarpagardoc,item,idproducto,descripcion,idunidad,cantidad,porc_imp,imp,preciounit,preciototal,idmoneda,TC) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + item + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMP)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMPUESTO)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_PRECIOUNIT)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_TOTAL)) + "','" + cbo_moneda.EditValue.ToString() + "','"+txt_tc.Text+"')");
+                        string detalle = NFunciones.ExecuteSQL("insert into tb_dcobrarpagardoc (idempresa,idcobrarpagardoc,item,idproducto,descripcion,idunidad,cantidad,porc_imp,imp,preciounit,preciototal,idmoneda,TC) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + item + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMP)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMPUESTO)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_PRECIOUNIT)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_TOTAL)) + "','" + cbo_moneda.EditValue.ToString() + "','" + txt_tc.Text + "')");
+                        if (txt_idoperacion.Text.Equals("C"))
+                        {
+                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','1')");
+                        }
+                        if (txt_idoperacion.Text.Equals("V"))
+                        {
+                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','-1')");
+                        }
                     }
-                    
+
                     LlegarGrilla();
                     MessageBox.Show("Actualizado Correctamente");
                     botones(true);
                     LlegarGrilla();
                     activartxt(false);
+                    VariablesGenerales.refrescompras = "S";
+                }
+                else
+                {
+                    MessageBox.Show("Error al Actualizar");
+                    return;
                 }
             }
+
+
             _opcion = "";
         }
 
@@ -674,7 +707,9 @@ namespace DXApplication1
             {
                 vista_datos.DeleteRow(vista_datos.FocusedRowHandle);
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void btn_cancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -724,16 +759,33 @@ namespace DXApplication1
                 if (Result==DialogResult.Yes)
                 {
                     string eliminarcabecera = NFunciones.ExecuteSQL("DELETE tb_cobrarpagardoc WHERE IDEMPRESA='"+VariablesGenerales.Empresa+ "' AND idcobrarpagardoc='" + txt_id.Text+"'");
-
                     limpiartxt();
                     txt_id.Text = "";
                     LlegarGrilla();
                     MessageBox.Show("Se Elimino Correctamente","Confirmación",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
+                    if (txt_idoperacion.Text.Equals("C"))
+                    {
+                        VariablesGenerales.refrescompras = "S";
+                    }
+
+                    if (txt_idoperacion.Text.Equals("V"))
+                    {
+                        VariablesGenerales.refresventas = "S";
+                    }
+                }
+                else
+                {
+                    return;
                 }
 
-
             }
+        }
+
+        private void dtp_fechadoc_EditValueChanging(object sender, ChangingEventArgs e)
+        {
+            txt_fecha.Text = Convert.ToString(dtp_fechadoc.EditValue);
+            txt_fecha.Text = txt_fecha.Text.ToString();
         }
     }
 }
