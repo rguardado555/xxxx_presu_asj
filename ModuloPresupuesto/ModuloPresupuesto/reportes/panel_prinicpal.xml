@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_PRESUPUESTO_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="181.176.187.68\BDNISIRA" />
+          <Parameter Name="database" Value="PRESUPUESTO" />
+          <Parameter Name="useIntegratedSecurity" Value="false" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="sa" />
+          <Parameter Name="password" Value="amadeus2010" />
+        </Parameters>
+      </Connection>
+      <Query Type="StoredProcQuery" Name="SP_KPI_PRINCIPAL">
+        <Parameter Name="@IDMONEDA" Type="System.String">02</Parameter>
+        <ProcName>SP_KPI_PRINCIPAL</ProcName>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="SP_KPI_PRINCIPAL">
+            <Field Name="IDPRESUPUESTO" Type="String" />
+            <Field Name="IDITEM" Type="String" />
+            <Field Name="PERIODO" Type="String" />
+            <Field Name="VALOREJECUTADO" Type="Decimal" />
+            <Field Name="VALORPRESUPUESTADO" Type="Decimal" />
+            <Field Name="DESVIACION" Type="Decimal" />
+            <Field Name="ESTADO" Type="String" />
+            <Field Name="ID" Type="Int32" />
+            <Field Name="IDMONEDA" Type="String" />
+            <Field Name="PRESUPUESTOTOTAL" Type="Decimal" />
+            <Field Name="DESCRIPCION" Type="String" />
+            <Field Name="PRESUPUESTO" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+      <CalculatedFields>
+        <CalculatedField Name="porcentajedeejecucion" Expression="Sum([VALOREJECUTADO]) / (Avg([PRESUPUESTOTOTAL]) - Sum([VALOREJECUTADO]))" DataType="Auto" DataMember="SP_KPI_PRINCIPAL" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="MONEDA" Value="" />
+  </Parameters>
+  <Items>
+    <Card ComponentName="cardDashboardItem1" Name="Desviación Acumulada por Item de Costo" DataSource="dashboardSqlDataSource1" DataMember="SP_KPI_PRINCIPAL">
+      <DataItems>
+        <Measure DataMember="VALORPRESUPUESTADO" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="VALOREJECUTADO" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="DESCRIPCION" DefaultId="DataItem0" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem2" />
+        <TargetValue DefaultId="DataItem1" />
+        <AbsoluteVariationNumericFormat Unit="Ones" IncludeGroupSeparator="true" />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+        <SparklineOptions ViewType="Area" />
+        <LayoutTemplate Type="Stretched">
+          <TopValue Visible="true" ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue Visible="true" ValueType="Title" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 Visible="true" ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 Visible="true" ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <DeltaIndicator Visible="true" />
+          <Sparkline Visible="true" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+    <Chart ComponentName="chartDashboardItem1" Name="Resumen Desviación Mensual" DataSource="dashboardSqlDataSource1" DataMember="SP_KPI_PRINCIPAL">
+      <DataItems>
+        <Measure DataMember="VALOREJECUTADO" Name="Ejecutado" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="VALORPRESUPUESTADO" Name="Presupuestado" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="PERIODO" DefaultId="DataItem0" />
+        <Dimension DataMember="DESCRIPCION" Name="Item de Costo" DefaultId="DataItem3" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem3" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <Series>
+            <Simple SeriesType="Line">
+              <Value DefaultId="DataItem1" />
+            </Simple>
+            <Simple SeriesType="Line">
+              <Value DefaultId="DataItem2" />
+            </Simple>
+          </Series>
+        </Pane>
+        <Pane Name="Panel 2" />
+      </Panes>
+      <ChartLegend InsidePosition="BottomRightVertical" OutsidePosition="TopLeftHorizontal" />
+      <AxisX TitleVisible="true" EnableZooming="true" />
+    </Chart>
+    <Gauge ComponentName="gaugeDashboardItem2" Name="Presupuesto Restante" DataSource="dashboardSqlDataSource1" DataMember="SP_KPI_PRINCIPAL" ViewType="CircularHalf">
+      <DataItems>
+        <Measure DataMember="PRESUPUESTOTOTAL" SummaryType="Average" DefaultId="DataItem0" />
+        <Measure DataMember="VALOREJECUTADO" DefaultId="DataItem1" />
+      </DataItems>
+      <GaugeElement Name=" Saldo">
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem1" />
+        <DeltaOptions ResultIndicationThresholdType="Absolute" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+      </GaugeElement>
+    </Gauge>
+    <Gauge ComponentName="gaugeDashboardItem1" Name="Presupuesto ejecutado" DataSource="dashboardSqlDataSource1" DataMember="SP_KPI_PRINCIPAL" ViewType="CircularHalf">
+      <DataItems>
+        <Measure DataMember="VALOREJECUTADO" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="PRESUPUESTOTOTAL" SummaryType="Average" DefaultId="DataItem0" />
+      </DataItems>
+      <GaugeElement Name="Ejecutado">
+        <ActualValue DefaultId="DataItem1" />
+        <TargetValue DefaultId="DataItem0" />
+        <DeltaOptions ValueType="ActualValue" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+      </GaugeElement>
+    </Gauge>
+    <Gauge ComponentName="gaugeDashboardItem3" Name="Porcentaje de Ejecución de Presupuesto" DataSource="dashboardSqlDataSource1" DataMember="SP_KPI_PRINCIPAL" ViewType="CircularHalf">
+      <DataItems>
+        <Measure DataMember="porcentajedeejecucion" Name="Porcentaje de Ejecución" DefaultId="DataItem0">
+          <NumericFormat FormatType="Percent" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <GaugeElement Name=" " Minimum="0" Maximum="100">
+        <TargetValue DefaultId="DataItem0" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+      </GaugeElement>
+    </Gauge>
+    <Grid ComponentName="gridDashboardItem1" Name="Detalle Ejecutado Vs Presupuestado" DataSource="dashboardSqlDataSource1" DataMember="SP_KPI_PRINCIPAL">
+      <DataItems>
+        <Dimension DataMember="DESCRIPCION" DefaultId="DataItem0" />
+        <Dimension DataMember="PERIODO" DefaultId="DataItem1" />
+        <Measure DataMember="VALOREJECUTADO" Name="Ejecutado" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="VALORPRESUPUESTADO" Name="Presupuestado" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="DESVIACION" Name="Desviación" DefaultId="DataItem4">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <FormatRules>
+        <GridItemFormatRule Name="FormatRule 1" DataItem="DataItem4">
+          <FormatConditionRangeSet ValueType="Number">
+            <RangeSet>
+              <Ranges>
+                <RangeInfo ValueComparison="Greater">
+                  <Value Type="System.Double" Value="-Infinity" />
+                  <IconSettings IconType="DirectionalRedTriangleDown" />
+                </RangeInfo>
+                <RangeInfo ValueComparison="Greater">
+                  <Value Type="System.Decimal" Value="0" />
+                  <IconSettings IconType="DirectionalYellowDash" />
+                </RangeInfo>
+                <RangeInfo ValueComparison="Greater">
+                  <Value Type="System.Decimal" Value="0.01" />
+                  <IconSettings IconType="DirectionalGreenTriangleUp" />
+                </RangeInfo>
+              </Ranges>
+            </RangeSet>
+          </FormatConditionRangeSet>
+        </GridItemFormatRule>
+      </FormatRules>
+      <GridColumns>
+        <GridDimensionColumn Weight="94.92350486787204">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="66.759388038942973">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Weight="63.630041724617527">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Weight="75.104311543810852">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Weight="74.582753824756608">
+          <Measure DefaultId="DataItem4" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions AllowGridCellMerge="true" ColumnWidthMode="Manual" />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutGroup Weight="57.142857142857146">
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="77.031564808596372" />
+        <LayoutGroup Orientation="Vertical" Weight="22.968435191403625">
+          <LayoutItem DashboardItem="gaugeDashboardItem3" Weight="35.3515625" />
+          <LayoutItem DashboardItem="gaugeDashboardItem2" Weight="33.0078125" />
+          <LayoutItem DashboardItem="gaugeDashboardItem1" Weight="31.640625" />
+        </LayoutGroup>
+      </LayoutGroup>
+      <LayoutGroup Weight="42.857142857142854">
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="49.966420416386839" />
+        <LayoutItem DashboardItem="cardDashboardItem1" Weight="50.033579583613161" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

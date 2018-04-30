@@ -34,6 +34,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Compra));
             this.COL_SUBTOTAL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.monoFlat_Panel1 = new MonoFlat.MonoFlat_Panel();
+            this.cbo_puerto = new DevExpress.XtraEditors.LookUpEdit();
+            this.monoFlat_Label12 = new MonoFlat.MonoFlat_Label();
+            this.cbo_regimen = new DevExpress.XtraEditors.LookUpEdit();
+            this.monoFlat_Label11 = new MonoFlat.MonoFlat_Label();
             this.monoFlat_Label10 = new MonoFlat.MonoFlat_Label();
             this.txt_fecha = new DevExpress.XtraEditors.TextEdit();
             this.txt_tc = new System.Windows.Forms.MaskedTextBox();
@@ -88,7 +92,13 @@
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_salir = new DevExpress.XtraBars.BarButtonItem();
+            this.monoFlat_Label13 = new MonoFlat.MonoFlat_Label();
+            this.txt_dam = new DevExpress.XtraEditors.TextEdit();
+            this.txt_anoimportacion = new DevExpress.XtraEditors.TextEdit();
+            this.monoFlat_Label14 = new MonoFlat.MonoFlat_Label();
             this.monoFlat_Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_puerto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_regimen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_fecha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_moneda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).BeginInit();
@@ -110,6 +120,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbo_medida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_medidadetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_dam.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_anoimportacion.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // COL_SUBTOTAL
@@ -135,6 +147,14 @@
             this.monoFlat_Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.monoFlat_Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.monoFlat_Panel1.Controls.Add(this.txt_anoimportacion);
+            this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label14);
+            this.monoFlat_Panel1.Controls.Add(this.txt_dam);
+            this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label13);
+            this.monoFlat_Panel1.Controls.Add(this.cbo_puerto);
+            this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label12);
+            this.monoFlat_Panel1.Controls.Add(this.cbo_regimen);
+            this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label11);
             this.monoFlat_Panel1.Controls.Add(this.monoFlat_Label10);
             this.monoFlat_Panel1.Controls.Add(this.txt_fecha);
             this.monoFlat_Panel1.Controls.Add(this.txt_tc);
@@ -160,9 +180,57 @@
             this.monoFlat_Panel1.Location = new System.Drawing.Point(2, 29);
             this.monoFlat_Panel1.Name = "monoFlat_Panel1";
             this.monoFlat_Panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.monoFlat_Panel1.Size = new System.Drawing.Size(1072, 150);
+            this.monoFlat_Panel1.Size = new System.Drawing.Size(1152, 150);
             this.monoFlat_Panel1.TabIndex = 0;
             this.monoFlat_Panel1.Text = "monoFlat_Panel1";
+            // 
+            // cbo_puerto
+            // 
+            this.cbo_puerto.Location = new System.Drawing.Point(798, 66);
+            this.cbo_puerto.Name = "cbo_puerto";
+            this.cbo_puerto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_puerto.Properties.Appearance.Options.UseFont = true;
+            this.cbo_puerto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_puerto.Properties.NullText = "[Seleccione]";
+            this.cbo_puerto.Size = new System.Drawing.Size(134, 24);
+            this.cbo_puerto.TabIndex = 29;
+            // 
+            // monoFlat_Label12
+            // 
+            this.monoFlat_Label12.AutoSize = true;
+            this.monoFlat_Label12.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label12.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label12.Location = new System.Drawing.Point(688, 69);
+            this.monoFlat_Label12.Name = "monoFlat_Label12";
+            this.monoFlat_Label12.Size = new System.Drawing.Size(104, 17);
+            this.monoFlat_Label12.TabIndex = 28;
+            this.monoFlat_Label12.Text = "Puerto Aduanas ";
+            // 
+            // cbo_regimen
+            // 
+            this.cbo_regimen.Location = new System.Drawing.Point(798, 19);
+            this.cbo_regimen.Name = "cbo_regimen";
+            this.cbo_regimen.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_regimen.Properties.Appearance.Options.UseFont = true;
+            this.cbo_regimen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_regimen.Properties.NullText = "[Seleccione]";
+            this.cbo_regimen.Size = new System.Drawing.Size(134, 24);
+            this.cbo_regimen.TabIndex = 27;
+            // 
+            // monoFlat_Label11
+            // 
+            this.monoFlat_Label11.AutoSize = true;
+            this.monoFlat_Label11.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label11.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label11.Location = new System.Drawing.Point(655, 22);
+            this.monoFlat_Label11.Name = "monoFlat_Label11";
+            this.monoFlat_Label11.Size = new System.Drawing.Size(137, 17);
+            this.monoFlat_Label11.TabIndex = 26;
+            this.monoFlat_Label11.Text = "Regimen Importación ";
             // 
             // monoFlat_Label10
             // 
@@ -170,25 +238,27 @@
             this.monoFlat_Label10.BackColor = System.Drawing.Color.Transparent;
             this.monoFlat_Label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monoFlat_Label10.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label10.Location = new System.Drawing.Point(850, 82);
+            this.monoFlat_Label10.Location = new System.Drawing.Point(1040, 113);
             this.monoFlat_Label10.Name = "monoFlat_Label10";
             this.monoFlat_Label10.Size = new System.Drawing.Size(60, 17);
             this.monoFlat_Label10.TabIndex = 25;
             this.monoFlat_Label10.Text = "Fcha doc";
+            this.monoFlat_Label10.Visible = false;
             // 
             // txt_fecha
             // 
-            this.txt_fecha.Location = new System.Drawing.Point(853, 113);
+            this.txt_fecha.Location = new System.Drawing.Point(1054, 122);
             this.txt_fecha.Name = "txt_fecha";
             this.txt_fecha.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_fecha.Properties.Appearance.Options.UseFont = true;
             this.txt_fecha.Size = new System.Drawing.Size(90, 24);
             this.txt_fecha.TabIndex = 24;
+            this.txt_fecha.Visible = false;
             // 
             // txt_tc
             // 
             this.txt_tc.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_tc.Location = new System.Drawing.Point(565, 24);
+            this.txt_tc.Location = new System.Drawing.Point(531, 22);
             this.txt_tc.Mask = "#.####";
             this.txt_tc.Name = "txt_tc";
             this.txt_tc.Size = new System.Drawing.Size(90, 23);
@@ -200,7 +270,7 @@
             this.monoFlat_Label9.BackColor = System.Drawing.Color.Transparent;
             this.monoFlat_Label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monoFlat_Label9.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label9.Location = new System.Drawing.Point(476, 24);
+            this.monoFlat_Label9.Location = new System.Drawing.Point(442, 24);
             this.monoFlat_Label9.Name = "monoFlat_Label9";
             this.monoFlat_Label9.Size = new System.Drawing.Size(83, 17);
             this.monoFlat_Label9.TabIndex = 21;
@@ -232,7 +302,7 @@
             // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(1027, 118);
+            this.txt_id.Location = new System.Drawing.Point(1073, 122);
             this.txt_id.Name = "txt_id";
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
@@ -265,7 +335,7 @@
             // 
             this.dtp_fechaoperacion.EditValue = null;
             this.dtp_fechaoperacion.Enabled = false;
-            this.dtp_fechaoperacion.Location = new System.Drawing.Point(907, 8);
+            this.dtp_fechaoperacion.Location = new System.Drawing.Point(1067, 110);
             this.dtp_fechaoperacion.Name = "dtp_fechaoperacion";
             this.dtp_fechaoperacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fechaoperacion.Properties.Appearance.Options.UseFont = true;
@@ -274,7 +344,7 @@
             this.dtp_fechaoperacion.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtp_fechaoperacion.Properties.ReadOnly = true;
-            this.dtp_fechaoperacion.Size = new System.Drawing.Size(147, 24);
+            this.dtp_fechaoperacion.Size = new System.Drawing.Size(68, 24);
             this.dtp_fechaoperacion.TabIndex = 15;
             this.dtp_fechaoperacion.Visible = false;
             // 
@@ -284,7 +354,7 @@
             this.monoFlat_Label7.BackColor = System.Drawing.Color.Transparent;
             this.monoFlat_Label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monoFlat_Label7.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label7.Location = new System.Drawing.Point(793, 11);
+            this.monoFlat_Label7.Location = new System.Drawing.Point(1015, 102);
             this.monoFlat_Label7.Name = "monoFlat_Label7";
             this.monoFlat_Label7.Size = new System.Drawing.Size(106, 17);
             this.monoFlat_Label7.TabIndex = 14;
@@ -360,6 +430,7 @@
             this.txt_numero.Name = "txt_numero";
             this.txt_numero.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_numero.Properties.Appearance.Options.UseFont = true;
+            this.txt_numero.Properties.MaxLength = 7;
             this.txt_numero.Size = new System.Drawing.Size(90, 24);
             this.txt_numero.TabIndex = 7;
             // 
@@ -369,6 +440,7 @@
             this.txt_serie.Name = "txt_serie";
             this.txt_serie.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_serie.Properties.Appearance.Options.UseFont = true;
+            this.txt_serie.Properties.MaxLength = 4;
             this.txt_serie.Size = new System.Drawing.Size(90, 24);
             this.txt_serie.TabIndex = 6;
             // 
@@ -431,7 +503,7 @@
             this.monoFlat_Panel2.Location = new System.Drawing.Point(2, 181);
             this.monoFlat_Panel2.Name = "monoFlat_Panel2";
             this.monoFlat_Panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.monoFlat_Panel2.Size = new System.Drawing.Size(1072, 325);
+            this.monoFlat_Panel2.Size = new System.Drawing.Size(1152, 325);
             this.monoFlat_Panel2.TabIndex = 1;
             this.monoFlat_Panel2.Text = "monoFlat_Panel2";
             // 
@@ -448,7 +520,7 @@
             this.cbo_productodetalle,
             this.cbo_medida,
             this.txt_medidadetalle});
-            this.dtg_datos.Size = new System.Drawing.Size(1064, 321);
+            this.dtg_datos.Size = new System.Drawing.Size(1144, 321);
             this.dtg_datos.TabIndex = 0;
             this.dtg_datos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vista_datos});
@@ -796,7 +868,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.menu_opciones;
-            this.barDockControl1.Size = new System.Drawing.Size(1076, 28);
+            this.barDockControl1.Size = new System.Drawing.Size(1156, 31);
             // 
             // barDockControl2
             // 
@@ -804,23 +876,23 @@
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControl2.Location = new System.Drawing.Point(0, 509);
             this.barDockControl2.Manager = this.menu_opciones;
-            this.barDockControl2.Size = new System.Drawing.Size(1076, 0);
+            this.barDockControl2.Size = new System.Drawing.Size(1156, 0);
             // 
             // barDockControl3
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 28);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 31);
             this.barDockControl3.Manager = this.menu_opciones;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 481);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 478);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1076, 28);
+            this.barDockControl4.Location = new System.Drawing.Point(1156, 31);
             this.barDockControl4.Manager = this.menu_opciones;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 481);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 478);
             // 
             // barButtonItem12
             // 
@@ -837,11 +909,55 @@
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
+            // monoFlat_Label13
+            // 
+            this.monoFlat_Label13.AutoSize = true;
+            this.monoFlat_Label13.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label13.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label13.Location = new System.Drawing.Point(935, 23);
+            this.monoFlat_Label13.Name = "monoFlat_Label13";
+            this.monoFlat_Label13.Size = new System.Drawing.Size(111, 17);
+            this.monoFlat_Label13.TabIndex = 30;
+            this.monoFlat_Label13.Text = "DAM importación";
+            // 
+            // txt_dam
+            // 
+            this.txt_dam.Location = new System.Drawing.Point(1052, 20);
+            this.txt_dam.Name = "txt_dam";
+            this.txt_dam.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_dam.Properties.Appearance.Options.UseFont = true;
+            this.txt_dam.Properties.MaxLength = 6;
+            this.txt_dam.Size = new System.Drawing.Size(90, 24);
+            this.txt_dam.TabIndex = 31;
+            // 
+            // txt_anoimportacion
+            // 
+            this.txt_anoimportacion.Location = new System.Drawing.Point(1052, 65);
+            this.txt_anoimportacion.Name = "txt_anoimportacion";
+            this.txt_anoimportacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_anoimportacion.Properties.Appearance.Options.UseFont = true;
+            this.txt_anoimportacion.Properties.MaxLength = 4;
+            this.txt_anoimportacion.Size = new System.Drawing.Size(90, 24);
+            this.txt_anoimportacion.TabIndex = 33;
+            // 
+            // monoFlat_Label14
+            // 
+            this.monoFlat_Label14.AutoSize = true;
+            this.monoFlat_Label14.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_Label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monoFlat_Label14.ForeColor = System.Drawing.Color.White;
+            this.monoFlat_Label14.Location = new System.Drawing.Point(941, 69);
+            this.monoFlat_Label14.Name = "monoFlat_Label14";
+            this.monoFlat_Label14.Size = new System.Drawing.Size(105, 17);
+            this.monoFlat_Label14.TabIndex = 32;
+            this.monoFlat_Label14.Text = "Año Importación";
+            // 
             // Frm_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 509);
+            this.ClientSize = new System.Drawing.Size(1156, 509);
             this.ControlBox = false;
             this.Controls.Add(this.monoFlat_Panel2);
             this.Controls.Add(this.monoFlat_Panel1);
@@ -856,6 +972,8 @@
             this.Load += new System.EventHandler(this.Frm_Compra_Load);
             this.monoFlat_Panel1.ResumeLayout(false);
             this.monoFlat_Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_puerto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_regimen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_fecha.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_moneda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).EndInit();
@@ -877,6 +995,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbo_medida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_medidadetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_dam.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_anoimportacion.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -940,5 +1060,13 @@
         private System.Windows.Forms.MaskedTextBox txt_tc;
         private MonoFlat.MonoFlat_Label monoFlat_Label10;
         private DevExpress.XtraEditors.TextEdit txt_fecha;
+        private DevExpress.XtraEditors.LookUpEdit cbo_puerto;
+        private MonoFlat.MonoFlat_Label monoFlat_Label12;
+        private DevExpress.XtraEditors.LookUpEdit cbo_regimen;
+        private MonoFlat.MonoFlat_Label monoFlat_Label11;
+        private DevExpress.XtraEditors.TextEdit txt_anoimportacion;
+        private MonoFlat.MonoFlat_Label monoFlat_Label14;
+        private DevExpress.XtraEditors.TextEdit txt_dam;
+        private MonoFlat.MonoFlat_Label monoFlat_Label13;
     }
 }

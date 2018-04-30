@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{332586D1-0909-486E-984C-884A287722B7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ModuloPresupuesto</RootNamespace>
+    <AssemblyName>ModuloPresupuesto</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>D:\ROBERTO GUARDADO\controles externos bunifu UI\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v17.1" />
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Dashboard.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Map.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v17.1" />
+    <Reference Include="DevExpress.Printing.v17.1.Core" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Presets, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dashboard1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dashboard1.Designer.cs">
+      <DependentUpon>Dashboard1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="filtro_ManoObra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="filtro_ManoObra.Designer.cs">
+      <DependentUpon>filtro_ManoObra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Destino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Destino.Designer.cs">
+      <DependentUpon>Frm_Destino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Empresa.Designer.cs">
+      <DependentUpon>Frm_Empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Etapas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Etapas.Designer.cs">
+      <DependentUpon>Frm_Etapas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_EtapasLotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_EtapasLotes.Designer.cs">
+      <DependentUpon>Frm_EtapasLotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Fundo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Fundo.Designer.cs">
+      <DependentUpon>Frm_Fundo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_ICosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_ICosto.Designer.cs">
+      <DependentUpon>Frm_ICosto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_lotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_lotes.Designer.cs">
+      <DependentUpon>Frm_lotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Menu.Designer.cs">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Parcela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Parcela.Designer.cs">
+      <DependentUpon>Frm_Parcela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Principal.Designer.cs">
+      <DependentUpon>Frm_Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Responsables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Responsables.Designer.cs">
+      <DependentUpon>Frm_Responsables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_SubItemCosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_SubItemCosto.Designer.cs">
+      <DependentUpon>Frm_SubItemCosto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rpt_DIR5_Cultivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_DIR5_Cultivo.Designer.cs">
+      <DependentUpon>Rpt_DIR5_Cultivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_GastoFijo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rpt_GastoFijo.Designer.cs">
+      <DependentUpon>rpt_GastoFijo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_General.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_General.Designer.cs">
+      <DependentUpon>Rpt_General.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_ManoObra_Fundo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rpt_ManoObra_Fundo.Designer.cs">
+      <DependentUpon>rpt_ManoObra_Fundo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_ManoObra_Lote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rpt_ManoObra_Lote.Designer.cs">
+      <DependentUpon>rpt_ManoObra_Lote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_ManoObra_Parcela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rpt_ManoObra_Parcela.Designer.cs">
+      <DependentUpon>rpt_ManoObra_Parcela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_DIR5_Global.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_DIR5_Global.Designer.cs">
+      <DependentUpon>Rpt_DIR5_Global.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_PxQ2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rpt_PxQ2.Designer.cs">
+      <DependentUpon>rpt_PxQ2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_xLote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_xLote.Designer.cs">
+      <DependentUpon>Rpt_xLote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VariablesGenerales.cs" />
+    <EmbeddedResource Include="Dashboard1.resx">
+      <DependentUpon>Dashboard1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="filtro_ManoObra.resx">
+      <DependentUpon>filtro_ManoObra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Destino.resx">
+      <DependentUpon>Frm_Destino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Empresa.resx">
+      <DependentUpon>Frm_Empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Etapas.resx">
+      <DependentUpon>Frm_Etapas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_EtapasLotes.resx">
+      <DependentUpon>Frm_EtapasLotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Fundo.resx">
+      <DependentUpon>Frm_Fundo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_ICosto.resx">
+      <DependentUpon>Frm_ICosto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_lotes.resx">
+      <DependentUpon>Frm_lotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Menu.resx">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Parcela.resx">
+      <DependentUpon>Frm_Parcela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Principal.resx">
+      <DependentUpon>Frm_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Responsables.resx">
+      <DependentUpon>Frm_Responsables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_SubItemCosto.resx">
+      <DependentUpon>Frm_SubItemCosto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Rpt_DIR5_Cultivo.resx">
+      <DependentUpon>Rpt_DIR5_Cultivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_GastoFijo.resx">
+      <DependentUpon>rpt_GastoFijo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_General.resx">
+      <DependentUpon>Rpt_General.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_ManoObra_Fundo.resx">
+      <DependentUpon>rpt_ManoObra_Fundo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_ManoObra_Lote.resx">
+      <DependentUpon>rpt_ManoObra_Lote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_ManoObra_Parcela.resx">
+      <DependentUpon>rpt_ManoObra_Parcela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_DIR5_Global.resx">
+      <DependentUpon>Rpt_DIR5_Global.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_PxQ2.resx">
+      <DependentUpon>rpt_PxQ2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_xLote.resx">
+      <DependentUpon>Rpt_xLote.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaNegocios\CapaNegocios.csproj">
+      <Project>{8b5a0c47-5dfd-464a-a59c-7066415accf3}</Project>
+      <Name>CapaNegocios</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

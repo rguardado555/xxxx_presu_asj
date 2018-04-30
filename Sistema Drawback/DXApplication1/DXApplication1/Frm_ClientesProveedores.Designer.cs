@@ -343,6 +343,7 @@
             this.btn_eliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.Image")));
             this.btn_eliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.LargeImage")));
             this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_eliminar_ItemClick);
             // 
             // bar2
             // 
@@ -360,7 +361,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.menu_opciones;
-            this.barDockControl1.Size = new System.Drawing.Size(1020, 48);
+            this.barDockControl1.Size = new System.Drawing.Size(1020, 51);
             // 
             // barDockControl2
             // 
@@ -374,17 +375,17 @@
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 48);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 51);
             this.barDockControl3.Manager = this.menu_opciones;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 394);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 391);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1020, 48);
+            this.barDockControl4.Location = new System.Drawing.Point(1020, 51);
             this.barDockControl4.Manager = this.menu_opciones;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 394);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 391);
             // 
             // barButtonItem12
             // 

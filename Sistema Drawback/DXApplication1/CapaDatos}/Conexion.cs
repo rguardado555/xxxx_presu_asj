@@ -10,6 +10,5 @@ namespace CapaDatos_
    public class Conexion
     {
         public static string CnPresupuesto = ConfigurationManager.ConnectionStrings["SAP_RG"].ToString();
-    
     }
 }

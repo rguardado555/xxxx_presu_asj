@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,10 +20,34 @@ namespace DXApplication1
 
         private void btn_acceder_Click(object sender, EventArgs e)
         {
-            Frm_MenuPrincipal ObjPrincipal = new Frm_MenuPrincipal();
-            ObjPrincipal.Show();
-            this.Hide();
 
+            if (cbo_empresaseleccionada.Text.Equals("[Seleccionar]"))
+            {
+                MessageBox.Show("Seleccione Empresa Primero !!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                VariablesGenerales.Empresa = cbo_empresaseleccionada.EditValue.ToString();
+                VariablesGenerales.Nombreempresa = "EMPRESA SELECCIONADA : " + cbo_empresaseleccionada.EditValue.ToString() + " - " + cbo_empresaseleccionada.Text.ToString();
+                Frm_MenuPrincipal ObjPrincipal = new Frm_MenuPrincipal();
+                ObjPrincipal.Show();
+                this.Hide();
+            }
+
+
+        }
+        void llenarEmpresa()
+        {
+            cbo_empresaseleccionada.Properties.DataSource = NFunciones.TABLASQL("select idempresa Codigo,razonsocial Empresa from tb_empresa order by idempresa asc");
+            cbo_empresaseleccionada.Properties.ValueMember = "Codigo";
+            cbo_empresaseleccionada.Properties.DisplayMember = "Empresa";
+
+        }
+
+        private void Frm_Login_Load(object sender, EventArgs e)
+        {
+            llenarEmpresa();
         }
     }
 }

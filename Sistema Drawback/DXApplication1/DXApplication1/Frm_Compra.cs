@@ -39,14 +39,14 @@ namespace DXApplication1
         {
             if (_idoperacion.Equals("C"))
             {
-                cbo_clieprov.Properties.DataSource = NFunciones.TABLASQL("select idclieprov CODIGO,razonsocial PROVEEDOR from tb_clieprov where not tipoclieprov='001' and idempresa='" + VariablesGenerales.Empresa + "'");
+                cbo_clieprov.Properties.DataSource = NFunciones.TABLASQL("select idclieprov CODIGO,razonsocial PROVEEDOR from tb_clieprov where   idempresa='" + VariablesGenerales.Empresa + "'");
                 cbo_clieprov.Properties.ValueMember = "CODIGO";
                 cbo_clieprov.Properties.DisplayMember = "PROVEEDOR";
             }
 
             if (_idoperacion.Equals("V"))
             {
-                cbo_clieprov.Properties.DataSource = NFunciones.TABLASQL("select idclieprov CODIGO,razonsocial PROVEEDOR from tb_clieprov where not tipoclieprov='002' and idempresa='" + VariablesGenerales.Empresa + "'");
+                cbo_clieprov.Properties.DataSource = NFunciones.TABLASQL("select idclieprov CODIGO,razonsocial PROVEEDOR from tb_clieprov where  idempresa='" + VariablesGenerales.Empresa + "'");
                 cbo_clieprov.Properties.ValueMember = "CODIGO";
                 cbo_clieprov.Properties.DisplayMember = "PROVEEDOR";
             }
@@ -92,23 +92,41 @@ namespace DXApplication1
             LlegarGrilla();
             llenarmedida();
             llenarmoneda();
+            regimenimportacion();
+            Puertoimportacion();
 
             if (_idoperacion.Equals("C"))
             {
                 txt_idoperacion.Text = "C";
                 txt_operacion.Text = "Compras";
                 this.Text = "Compras";
+                cbo_regimen.Visible = true;
+                cbo_puerto.Visible = true;
+                monoFlat_Label11.Visible = true;
+                monoFlat_Label12.Visible = true;
+                monoFlat_Label13.Visible = true;
+                monoFlat_Label14.Visible = true;
+                txt_dam.Visible = true;
+                txt_anoimportacion.Visible = true;
             }
             if (_idoperacion.Equals("V"))
             {
                 txt_idoperacion.Text = "V";
                 txt_operacion.Text = "Ventas";
                 this.Text = "Ventas";
+                cbo_regimen.Visible = false;
+                cbo_puerto.Visible = false;
+                monoFlat_Label11.Visible = false;
+                monoFlat_Label12.Visible = false;
+                monoFlat_Label13.Visible = false;
+                monoFlat_Label14.Visible = false;
+                txt_dam.Visible = false;
+                txt_anoimportacion.Visible = false;
+
             }
             if (_opcion.Equals("N"))
             {
                 limpiartxt();
-                
                 txt_id.Text = _id;
                 botones(false);
                 activartxt(true);
@@ -125,12 +143,12 @@ namespace DXApplication1
                 {
                     txt_tc.Text = tc.Rows[0]["TC"].ToString();
                 }
-
-
             }
             if (_opcion.Equals("E"))
             {
-  
+
+                regimenimportacion();
+                Puertoimportacion();
                 DataTable tb_cabecera = NFunciones.TABLASQL("select * from tb_cobrarpagardoc where idempresa='"+VariablesGenerales.Empresa+"' and idcobrarpagardoc='"+_id+"'");
                 if (tb_cabecera.Rows.Count>0)
                 {
@@ -144,6 +162,11 @@ namespace DXApplication1
                     txt_idoperacion.Text = tb_cabecera.Rows[0]["tipo"].ToString();
                     cbo_moneda.EditValue = tb_cabecera.Rows[0]["idmoneda"].ToString();
                     txt_tc.Text = tb_cabecera.Rows[0]["TC"].ToString();
+                    cbo_puerto.EditValue = tb_cabecera.Rows[0]["idpuertoimportacion"].ToString();
+                    cbo_regimen.EditValue = tb_cabecera.Rows[0]["idregimenimportacion"].ToString();
+                    txt_dam.Text = tb_cabecera.Rows[0]["dam"].ToString();
+                    txt_anoimportacion.Text = tb_cabecera.Rows[0]["anoimportacion"].ToString();
+
                     if (txt_idoperacion.Equals("C"))
                     {
                         txt_operacion.Text = "Compras";
@@ -154,49 +177,86 @@ namespace DXApplication1
                         txt_operacion.Text = "Ventas";
                         this.Text = "Ventas";
                     }
-
                     LlegarGrilla();
                 }
 
-                DataTable tb_table = new DataTable();
-                tb_table = NFunciones.TABLASQL("select * from tb_docreferencia where idempresa='" + VariablesGenerales.Empresa + "' and idorigen='" + txt_id.Text + "'");
-                if (tb_table.Rows.Count > 0)
+
+
+                if (_idoperacion.Equals("C"))
                 {
-                    botones(true);
-                    activartxt(false);
-                    _opcion = "";
-                    MessageBox.Show("Este Registro Esta relacionado con otros Registro, No se puede realizar la operación !");
-                    return;
-                }
-                     else
-                {
+
+
+                    DataTable tb_table = new DataTable();
+                    tb_table = NFunciones.TABLASQL("select * from tb_movcobrarpagardoc_drakback where idcobrarpagardoc='"+txt_id.Text+ "' AND NOT idtransaccion='" + txt_id.Text + "' AND idempresa='"+VariablesGenerales.Empresa+"'");
+                    if (tb_table.Rows.Count > 0)
+                    {
+                        botones(true);
+                        activartxt(false);
+                        _opcion = "";
+                        MessageBox.Show("Este Registro Esta relacionado con otros Registro, No se puede realizar la operación !");
+                        return;
+                    }
+                    else
+                    {
                         botones(false);
                         activartxt(true);
                         _opcion = "E";
-                  }
-                
+                    }
+
+                }
+                if (_idoperacion.Equals("V"))
+                {
+
+
+                    DataTable tb_table = new DataTable();
+                    tb_table = NFunciones.TABLASQL("select * from tb_docreferencia where idempresa='" + VariablesGenerales.Empresa + "' and idorigen='" + txt_id.Text + "'");
+                    if (tb_table.Rows.Count > 0)
+                    {
+                        botones(true);
+                        activartxt(false);
+                        _opcion = "";
+                        MessageBox.Show("Este Registro Esta relacionado con otros Registro, No se puede realizar la operación !");
+                        return;
+                    }
+                    else
+                    {
+                        botones(false);
+                        activartxt(true);
+                        _opcion = "E";
+                    }
+
+                }
+
 
             }
 
 
             if (_opcion.Equals("V"))
             {
+                
                 botones(true);
                 activartxt(false);
                 _opcion = "";
+                llenarclienteproveedor();
+                regimenimportacion();
+                Puertoimportacion();
                 DataTable tb_cabecera = NFunciones.TABLASQL("select * from tb_cobrarpagardoc where idempresa='" + VariablesGenerales.Empresa + "' and idcobrarpagardoc='" + _id + "'");
                 if (tb_cabecera.Rows.Count > 0)
                 {
                     txt_id.Text = tb_cabecera.Rows[0]["idcobrarpagardoc"].ToString();
                     cbo_clieprov.EditValue = tb_cabecera.Rows[0]["idclieprov"].ToString();
-                    dtp_fechadoc.EditValue = tb_cabecera.Rows[0]["fecha"].ToString();
-                    dtp_fechaoperacion.EditValue = tb_cabecera.Rows[0]["fechaoperacion"].ToString();
+                    dtp_fechadoc.EditValue = Convert.ToDateTime(tb_cabecera.Rows[0]["fecha"].ToString());
+                    //dtp_fechaoperacion.EditValue = tb_cabecera.Rows[0]["fechaoperacion"].ToString();
                     cbo_documento.EditValue = tb_cabecera.Rows[0]["iddocumento"].ToString();
                     txt_serie.Text = tb_cabecera.Rows[0]["serie"].ToString();
                     txt_numero.Text = tb_cabecera.Rows[0]["numero"].ToString();
                     txt_idoperacion.Text = tb_cabecera.Rows[0]["tipo"].ToString();
                     cbo_moneda.EditValue = tb_cabecera.Rows[0]["idmoneda"].ToString();
                     txt_tc.Text = tb_cabecera.Rows[0]["TC"].ToString();
+                    cbo_puerto.EditValue = tb_cabecera.Rows[0]["idpuertoimportacion"].ToString();
+                    cbo_regimen.EditValue = tb_cabecera.Rows[0]["idregimenimportacion"].ToString();
+                    txt_dam.Text = tb_cabecera.Rows[0]["dam"].ToString();
+                    txt_anoimportacion.Text = tb_cabecera.Rows[0]["anoimportacion"].ToString();
                     if (txt_idoperacion.Equals("C"))
                     {
                         txt_operacion.Text = "Compras";
@@ -207,7 +267,6 @@ namespace DXApplication1
                         txt_operacion.Text = "Ventas";
                         this.Text = "Ventas";
                     }
-
                     LlegarGrilla();
                 }
               
@@ -238,18 +297,27 @@ namespace DXApplication1
             dtp_fechadoc.Enabled = valor;
             cbo_moneda.Enabled = valor;
             txt_tc.Enabled = valor;
+            txt_dam.Enabled = valor;
+            txt_anoimportacion.Enabled = valor;
+            cbo_puerto.Enabled = valor;
+            cbo_regimen.Enabled = valor;
             COL_CANTIDAD.OptionsColumn.AllowEdit = valor;
             COL_PRECIOUNIT.OptionsColumn.AllowEdit = valor;
             COL_IMP.OptionsColumn.AllowEdit = valor;
             COL_IDPRODUCTO.OptionsColumn.AllowEdit = valor;
+            COL_ITEM.OptionsColumn.AllowEdit = valor;
         }
         void limpiartxt()
         {
            txt_id.Text = "";
            cbo_clieprov.EditValue = "";
            cbo_documento.EditValue = "";
+            cbo_puerto.EditValue = "";
+            cbo_regimen.EditValue = "";
             txt_serie.Text = "";
             txt_numero.Text = "";
+            txt_dam.Text = "";
+            txt_anoimportacion.Text = "";
             dtp_fechadoc.EditValue = DateTime.Now.ToShortDateString();
             dtp_fechaoperacion.EditValue = DateTime.Now.ToShortDateString();
             dtg_datos.DataSource = null;
@@ -263,7 +331,19 @@ namespace DXApplication1
 
         void LlegarGrilla()
         {
-            dtg_datos.DataSource = NFunciones.TABLASQL("select item ITEM,idproducto IDPRODUCTO,descripcion PRODUCTO,idunidad IDMEDIDA,cantidad CANTIDAD,cantidad * preciounit  SUBTOTAL,porc_imp IMP, (cantidad* preciounit *porc_imp)AS IMPUESTO,preciounit PRECIOUNIT,preciototal  TOTAL from tb_dcobrarpagardoc where idcobrarpagardoc='"+txt_id.Text+"' and idempresa='"+VariablesGenerales.Empresa+"' order by item asc");
+            dtg_datos.DataSource = NFunciones.TABLASQL("select item ITEM,idproducto IDPRODUCTO,descripcion PRODUCTO,idunidad IDMEDIDA,cantidad CANTIDAD,cantidad * preciounit  SUBTOTAL,isnull(porc_imp,0) IMP, isnull((cantidad* preciounit *porc_imp),0) AS IMPUESTO,preciounit PRECIOUNIT,preciototal  TOTAL from tb_dcobrarpagardoc where idcobrarpagardoc='"+txt_id.Text+"' and idempresa='"+VariablesGenerales.Empresa+"' order by item asc");
+        }
+        void regimenimportacion()
+        {
+            cbo_regimen.Properties.DataSource = NFunciones.TABLASQL("select idregimen ID,regimen REGIMEN  from tb_regimen ORDER BY idregimen ASC");
+            cbo_regimen.Properties.ValueMember = "ID";
+            cbo_regimen.Properties.DisplayMember = "REGIMEN";
+        }
+        void Puertoimportacion()
+        {
+            cbo_puerto.Properties.DataSource = NFunciones.TABLASQL("SELECT idpuerto ID,puesto PUERTO FROM tb_puertos order by idpuerto asc ");
+            cbo_puerto.Properties.ValueMember = "ID";
+            cbo_puerto.Properties.DisplayMember = "PUERTO";
         }
 
         private void btn_addDetalle_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -322,22 +402,22 @@ namespace DXApplication1
             {
                 if (e.Column.FieldName == "CANTIDAD")
             {
-                    if (Convert.ToString(view.GetFocusedRowCellValue("CANTIDAD")) == "")
+                    if ( string.IsNullOrEmpty(Convert.ToString(view.GetFocusedRowCellValue("CANTIDAD"))))
                     {
                         vista_datos.SetFocusedRowCellValue(vista_datos.Columns["CANTIDAD"], 0);
                     }
 
-                    if (Convert.ToString(view.GetFocusedRowCellValue("PRECIOUNIT")) == "")
+                    if (string.IsNullOrEmpty(Convert.ToString(view.GetFocusedRowCellValue("PRECIOUNIT"))))
                     {
                         vista_datos.SetFocusedRowCellValue(vista_datos.Columns["PRECIOUNIT"], 0);
                     }
 
-                    if (Convert.ToString(view.GetFocusedRowCellValue("IMP")) == "")
+                    if (string.IsNullOrEmpty(Convert.ToString(view.GetFocusedRowCellValue("IMP"))))
                     {
                         vista_datos.SetFocusedRowCellValue(vista_datos.Columns["IMP"], 0);
                     }
 
-                    if (Convert.ToString(view.GetFocusedRowCellValue("IMPUESTO")) == "")
+                    if (string.IsNullOrEmpty(Convert.ToString(view.GetFocusedRowCellValue("IMPUESTO"))))
                     {
                         vista_datos.SetFocusedRowCellValue(vista_datos.Columns["IMPUESTO"], 0);
                     }
@@ -507,6 +587,12 @@ namespace DXApplication1
                 MessageBox.Show("Debe Ingresar Proveedor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (cbo_clieprov.EditValue.Equals(""))
+            {
+                MessageBox.Show("Debe Ingresar Proveedor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (dtp_fechadoc.Text.Equals(""))
             {
                 MessageBox.Show("Debe Ingresar Fecha Documento", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -515,7 +601,7 @@ namespace DXApplication1
 
             if (cbo_documento.Text.Equals("[Seleccione]") || cbo_documento.Text.Equals(""))
             {
-                MessageBox.Show("Debe Ingresar Proveedor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe Ingresar Documento", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (txt_serie.Text.Equals(""))
@@ -529,6 +615,32 @@ namespace DXApplication1
                 return;
             }
 
+            if (txt_idoperacion.Text.Equals("C"))
+            {
+                if (cbo_puerto.Text.Equals("[Seleccione]") || cbo_puerto.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe Ingresar Puerto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (cbo_regimen.Text.Equals("[Seleccione]") || cbo_regimen.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe Ingresar Regimen", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (txt_dam.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe Ingresar DAM", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if ( string.IsNullOrEmpty( txt_anoimportacion.Text) || txt_anoimportacion.Text.Length!=4 )
+                {
+                    MessageBox.Show("Debe Ingresar Año Importación (AAAA)", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+            }
+
             if (vista_datos.RowCount < 1)
             {
                 MessageBox.Show("Debe ingresar detalle !", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -537,14 +649,19 @@ namespace DXApplication1
             else
             {
 
-                vista_datos.SetFocusedRowCellValue(COL_ITEM, 1);
-                for (int i = 0; i < vista_datos.RowCount-1; i++)
-                {
-                    vista_datos.SetRowCellValue(i,"ITEM",i);
-                }
+                //vista_datos.SetFocusedRowCellValue(COL_ITEM, 1);
+                //for (int i = 0; i < vista_datos.RowCount-1; i++)
+                //{
+                //    vista_datos.SetRowCellValue(i,"ITEM",i);
+                //}
 
                     for (int i = 0; i < vista_datos.RowCount; i++)
                     {
+                    if (vista_datos.GetRowCellValue(i, COL_ITEM).ToString().Equals("") || Convert.ToDouble(vista_datos.GetRowCellValue(i, COL_ITEM)) <= 0)
+                    {
+                        MessageBox.Show("Debe ingresar Item !", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     if (vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString().Equals("") || vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString().Equals("[Seleccionar]"))
                     {
                         MessageBox.Show("Debe ingresar Codigo de Producto !", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -573,26 +690,53 @@ namespace DXApplication1
             }
             //--------validado
 
-         
+            if (txt_serie.Text.Length<4)
+            {
+                txt_serie.Text = txt_serie.Text.PadLeft(4, '0');
+            }
+            if (txt_numero.Text.Length < 7)
+            {
+                txt_numero.Text = txt_numero.Text.PadLeft(7, '0');
+            }
 
             if (_opcion.Equals("N"))
             {
+                DataTable tbvalidador = NFunciones.TABLASQL("SELECT * FROM tb_cobrarpagardoc WHERE idempresa='"+VariablesGenerales.Empresa+"' AND iddocumento='"+ cbo_documento.EditValue.ToString() + "' AND serie='"+txt_serie.Text+"' AND numero='"+txt_numero.Text+"' AND idclieprov='"+ cbo_clieprov.EditValue.ToString() + "'and tipo='"+txt_idoperacion.Text+"'");
+                if (tbvalidador.Rows.Count>0)
+                    
+                {
+                    MessageBox.Show("Ya existe el documento , intente con otro!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string mensaje="";
-                string cabecera = NFunciones.ExecuteSQL("insert into tb_cobrarpagardoc(idcobrarpagardoc,idempresa,iddocumento,serie,numero,idclieprov,razonsocial,estado,tipo,idmoneda,TC,fecha)values('"+txt_id.Text+"','"+VariablesGenerales.Empresa+"','"+cbo_documento.EditValue.ToString()+"','"+txt_serie.Text+"','"+txt_numero.Text+"','"+cbo_clieprov.EditValue.ToString()+"','"+cbo_clieprov.Text.ToUpper()+"','1','"+txt_idoperacion.Text+ "','" + cbo_moneda.EditValue.ToString() + "','"+txt_tc.Text+ "',Convert(DATE,'"+dtp_fechadoc.Text+ "',103))");
-                if (cabecera.Equals("Ok"))
+
+                string cabecera="";
+
+                if (txt_idoperacion.Text.Equals("C"))
+                {
+                     cabecera = NFunciones.ExecuteSQL("insert into tb_cobrarpagardoc(idcobrarpagardoc,idempresa,iddocumento,serie,numero,idclieprov,razonsocial,estado,tipo,idmoneda,TC,fecha,idregimenimportacion,idpuertoimportacion,dam,anoimportacion)values('" + txt_id.Text + "','" + VariablesGenerales.Empresa + "','" + cbo_documento.EditValue.ToString() + "','" + txt_serie.Text + "','" + txt_numero.Text + "','" + cbo_clieprov.EditValue.ToString() + "','" + cbo_clieprov.Text.ToUpper() + "','1','" + txt_idoperacion.Text + "','" + cbo_moneda.EditValue.ToString() + "','" + txt_tc.Text + "',Convert(DATE,'" + dtp_fechadoc.Text + "',103),'" + cbo_regimen.EditValue.ToString() + "','" + cbo_puerto.EditValue.ToString() + "','" + txt_dam.Text + "','" + txt_anoimportacion.Text + "')");
+                }
+                if (txt_idoperacion.Text.Equals("V"))
+                {
+                     cabecera = NFunciones.ExecuteSQL("insert into tb_cobrarpagardoc(idcobrarpagardoc,idempresa,iddocumento,serie,numero,idclieprov,razonsocial,estado,tipo,idmoneda,TC,fecha)values('" + txt_id.Text + "','" + VariablesGenerales.Empresa + "','" + cbo_documento.EditValue.ToString() + "','" + txt_serie.Text + "','" + txt_numero.Text + "','" + cbo_clieprov.EditValue.ToString() + "','" + cbo_clieprov.Text.ToUpper() + "','1','" + txt_idoperacion.Text + "','" + cbo_moneda.EditValue.ToString() + "','" + txt_tc.Text + "',Convert(DATE,'" + dtp_fechadoc.Text + "',103))");
+                }
+
+                    if (cabecera.Equals("Ok"))
                 {
                     for (int i = 0; i < vista_datos.RowCount; i++)
                     {
-                        int item = i + 1;
-                        string detalle = NFunciones.ExecuteSQL("insert into tb_dcobrarpagardoc (idempresa,idcobrarpagardoc,item,idproducto,descripcion,idunidad,cantidad,porc_imp,imp,preciounit,preciototal,idmoneda,TC) values('"+VariablesGenerales.Empresa+"','"+txt_id.Text+"','"+ item + "','"+ vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal( vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMP)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMPUESTO)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_PRECIOUNIT)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_TOTAL)) + "','" + cbo_moneda.EditValue.ToString() + "','" + txt_tc.Text + "')");
+                        //int item = i + 1;
+
+                        string detalle = NFunciones.ExecuteSQL("insert into tb_dcobrarpagardoc (idempresa,idcobrarpagardoc,item,idproducto,descripcion,idunidad,cantidad,porc_imp,imp,preciounit,preciototal,idmoneda,TC) values('"+VariablesGenerales.Empresa+"','"+txt_id.Text+"','"+ vista_datos.GetRowCellValue(i, COL_ITEM).ToString() + "','"+ vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal( vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMP)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMPUESTO)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_PRECIOUNIT)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_TOTAL)) + "','" + cbo_moneda.EditValue.ToString() + "','" + txt_tc.Text + "')");
 
                         if (txt_idoperacion.Text.Equals("C"))
                         {
-                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idtransaccion,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor,cantidadorigen) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','1','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "')");
+                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idtransaccion,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor,cantidadorigen,item) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','1','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + vista_datos.GetRowCellValue(i, COL_ITEM).ToString() + "')");
                         }
                         if (txt_idoperacion.Text.Equals("V"))
                         {
-                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idtransaccion,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor,cantidadorigen) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','-1','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "')");
+                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idtransaccion,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor,cantidadorigen,item) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','-1','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + vista_datos.GetRowCellValue(i, COL_ITEM).ToString() + "')");
                         }
 
                     }
@@ -621,24 +765,24 @@ namespace DXApplication1
            
               if (_opcion.Equals("E"))
             {
-                string rpta = NFunciones.ExecuteSQL("update tb_cobrarpagardoc set   iddocumento='" + cbo_documento.EditValue.ToString() + "',serie='" + txt_serie.Text + "',numero='" + txt_numero.Text + "', idclieprov='" + cbo_clieprov.EditValue.ToString() + "',razonsocial='" + cbo_clieprov.Text.ToString() + "',idmoneda='" + cbo_moneda.EditValue.ToString() + "',TC='" + txt_tc.Text + "',fecha = Convert(DATE,'" + dtp_fechadoc.Text + "',103)    where idcobrarpagardoc='" + txt_id.Text + "' and idempresa='" + VariablesGenerales.Empresa + "'");
+                string rpta = NFunciones.ExecuteSQL("update tb_cobrarpagardoc set   iddocumento='" + cbo_documento.EditValue.ToString() + "',serie='" + txt_serie.Text + "',numero='" + txt_numero.Text + "', idclieprov='" + cbo_clieprov.EditValue.ToString() + "',razonsocial='" + cbo_clieprov.Text.ToString() + "',idmoneda='" + cbo_moneda.EditValue.ToString() + "',TC='" + txt_tc.Text + "',fecha = Convert(DATE,'" + dtp_fechadoc.Text + "',103) ,idregimenimportacion='"+cbo_regimen.EditValue.ToString()+ "',idpuertoimportacion='"+cbo_puerto.EditValue.ToString()+ "',dam='"+txt_dam.Text+"',anoimportacion='"+txt_anoimportacion.Text+"'   where idcobrarpagardoc='" + txt_id.Text + "' and idempresa='" + VariablesGenerales.Empresa + "'");
                 string del = NFunciones.ExecuteSQL("delete tb_dcobrarpagardoc where idempresa='" + VariablesGenerales.Empresa + "' and idcobrarpagardoc='" + txt_id.Text + "'");
-                string delmov = NFunciones.ExecuteSQL("delete tb_movcobrarpagardoc_drakback where idempresa='" + VariablesGenerales.Empresa + "' and idcobrarpagardoc='" + txt_id.Text + "'");
+                string delmov = NFunciones.ExecuteSQL("delete tb_movcobrarpagardoc_drakback where idempresa='" + VariablesGenerales.Empresa + "' and idcobrarpagardoc='" + txt_id.Text + "' and idtransaccion='" + txt_id.Text + "'");
 
                 if (rpta.Equals("Ok"))
                 {
                     //---agregar
                     for (int i = 0; i < vista_datos.RowCount; i++)
                     {
-                        int item = i + 1;
-                        string detalle = NFunciones.ExecuteSQL("insert into tb_dcobrarpagardoc (idempresa,idcobrarpagardoc,item,idproducto,descripcion,idunidad,cantidad,porc_imp,imp,preciounit,preciototal,idmoneda,TC) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + item + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMP)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMPUESTO)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_PRECIOUNIT)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_TOTAL)) + "','" + cbo_moneda.EditValue.ToString() + "','" + txt_tc.Text + "')");
+                        //int item = i + 1;
+                        string detalle = NFunciones.ExecuteSQL("insert into tb_dcobrarpagardoc (idempresa,idcobrarpagardoc,item,idproducto,descripcion,idunidad,cantidad,porc_imp,imp,preciounit,preciototal,idmoneda,TC) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_ITEM).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMP)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_IMPUESTO)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_PRECIOUNIT)) + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_TOTAL)) + "','" + cbo_moneda.EditValue.ToString() + "','" + txt_tc.Text + "')");
                         if (txt_idoperacion.Text.Equals("C"))
                         {
-                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','1')");
+                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idtransaccion,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor,item) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','1','"+ vista_datos.GetRowCellValue(i, COL_ITEM).ToString() + "')");
                         }
                         if (txt_idoperacion.Text.Equals("V"))
                         {
-                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','-1')");
+                            string mov = NFunciones.ExecuteSQL("insert into tb_movcobrarpagardoc_drakback (idempresa,idtransaccion,idcobrarpagardoc,idproducto,descripcion,idunidad,cantidad,factor,item) values('" + VariablesGenerales.Empresa + "','" + txt_id.Text + "','" + txt_id.Text + "','" + vista_datos.GetRowCellValue(i, COL_IDPRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_PRODUCTO).ToString() + "','" + vista_datos.GetRowCellValue(i, COL_MEDIDA).ToString() + "','" + Convert.ToDecimal(vista_datos.GetRowCellValue(i, COL_CANTIDAD)) + "','-1','"+ vista_datos.GetRowCellValue(i, COL_ITEM).ToString() + "')");
                         }
                     }
 
@@ -662,22 +806,67 @@ namespace DXApplication1
 
         private void btn_editar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DataTable tb_table = new DataTable();
-            tb_table = NFunciones.TABLASQL("select * from tb_docreferencia where idempresa='" + VariablesGenerales.Empresa + "' and idorigen='" + txt_id.Text + "'");
-            if (tb_table.Rows.Count > 0)
+            //DataTable tb_table = new DataTable();
+            //tb_table = NFunciones.TABLASQL("select * from tb_docreferencia where idempresa='" + VariablesGenerales.Empresa + "' and idorigen='" + txt_id.Text + "'");
+            //if (tb_table.Rows.Count > 0)
+            //{
+            //    botones(true);
+            //    activartxt(false);
+            //    _opcion = "";
+            //    MessageBox.Show("Este Registro Esta relacionado con otros Registro, No se puede realizar la operación !");
+            //    return;
+            //}
+            //else
+            //{
+            //    botones(false);
+            //    activartxt(true);
+            //    _opcion = "E";
+            //}
+
+
+            if (_idoperacion.Equals("C"))
             {
-                botones(true);
-                activartxt(false);
-                _opcion = "";
-                MessageBox.Show("Este Registro Esta relacionado con otros Registro, No se puede realizar la operación !");
-                return;
+                DataTable tb_table = new DataTable();
+                tb_table = NFunciones.TABLASQL("select * from tb_movcobrarpagardoc_drakback where idcobrarpagardoc='" + txt_id.Text + "' AND NOT idtransaccion='" + txt_id.Text + "' AND idempresa='" + VariablesGenerales.Empresa + "'");
+                if (tb_table.Rows.Count > 0)
+                {
+                    botones(true);
+                    activartxt(false);
+                    _opcion = "";
+                    MessageBox.Show("Este Registro Esta relacionado con otros Registro, No se puede realizar la operación !");
+                    return;
+                }
+                else
+                {
+                    botones(false);
+                    activartxt(true);
+                    _opcion = "E";
+                }
+
             }
-            else
+            if (_idoperacion.Equals("V"))
             {
-                botones(false);
-                activartxt(true);
-                _opcion = "E";
+
+
+                DataTable tb_table = new DataTable();
+                tb_table = NFunciones.TABLASQL("select * from tb_docreferencia where idempresa='" + VariablesGenerales.Empresa + "' and idorigen='" + txt_id.Text + "'");
+                if (tb_table.Rows.Count > 0)
+                {
+                    botones(true);
+                    activartxt(false);
+                    _opcion = "";
+                    MessageBox.Show("Este Registro Esta relacionado con otros Registro, No se puede realizar la operación !");
+                    return;
+                }
+                else
+                {
+                    botones(false);
+                    activartxt(true);
+                    _opcion = "E";
+                }
+
             }
+
         }
 
         private void btn_nuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -747,7 +936,16 @@ namespace DXApplication1
 
         private void btn_eliminar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DataTable tb_op = NFunciones.TABLASQL("select * from tb_docreferencia where idempresa='"+VariablesGenerales.Empresa+"' and iddocdestino='"+txt_id.Text+"'");
+            DataTable tb_op = new DataTable();
+
+            if(txt_idoperacion.Text.Equals("C")){
+                tb_op = NFunciones.TABLASQL("SELECT * FROM tb_movcobrarpagardoc_drakback where idcobrarpagardoc='"+txt_id.Text+"' and idempresa='"+VariablesGenerales.Empresa+"' and not idtransaccion='"+txt_id.Text+"'");
+            }
+            if (txt_idoperacion.Text.Equals("V"))
+            {
+                tb_op = NFunciones.TABLASQL("select * from tb_docreferencia where idempresa='" + VariablesGenerales.Empresa + "' and idorigen='" + txt_id.Text + "'");
+            }
+
             if (tb_op.Rows.Count>0)
             {
                 MessageBox.Show("No se Puede Eliminar el Documento esta Referenciado a otro Documento ","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Warning);
@@ -759,6 +957,8 @@ namespace DXApplication1
                 if (Result==DialogResult.Yes)
                 {
                     string eliminarcabecera = NFunciones.ExecuteSQL("DELETE tb_cobrarpagardoc WHERE IDEMPRESA='"+VariablesGenerales.Empresa+ "' AND idcobrarpagardoc='" + txt_id.Text+"'");
+                    string detalle = NFunciones.ExecuteSQL("DELETE tb_dcobrarpagardoc WHERE IDEMPRESA='" + VariablesGenerales.Empresa + "' AND idcobrarpagardoc='" + txt_id.Text + "'");
+                    string mov = NFunciones.ExecuteSQL("DELETE tb_movcobrarpagardoc_drakback WHERE IDEMPRESA='" + VariablesGenerales.Empresa + "' AND idcobrarpagardoc='" + txt_id.Text + "' AND IDTRANSACCION='"+ txt_id.Text + "'");
                     limpiartxt();
                     txt_id.Text = "";
                     LlegarGrilla();

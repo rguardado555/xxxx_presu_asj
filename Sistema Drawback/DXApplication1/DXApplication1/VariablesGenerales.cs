@@ -13,6 +13,10 @@ namespace DXApplication1
         public static string Empresa = "001";
         public static string refrescompras = "N";
         public static string refresventas = "N";
+        public static string refduas = "N";
+        public static string Nombreempresa = "";
+
+
         static DataTable GetTable(DataTable tb)
         {
             // Here we create a DataTable with four columns.

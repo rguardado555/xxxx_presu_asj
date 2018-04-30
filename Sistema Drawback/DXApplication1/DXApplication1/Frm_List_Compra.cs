@@ -74,5 +74,54 @@ namespace DXApplication1
                 LlegarGrilla();
             }
         }
+
+        private void btn_actualizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LlegarGrilla();
+        }
+
+        private void btn_eliminar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                DialogResult rpta = MessageBox.Show("Desea Eliminar este registro ?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (rpta == DialogResult.Yes)
+                {
+ 
+                    DataTable tb_op = new DataTable();
+               
+                   tb_op = NFunciones.TABLASQL("SELECT * FROM tb_movcobrarpagardoc_drakback where idcobrarpagardoc='" + Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_ID)) + "' and idempresa='" + VariablesGenerales.Empresa + "' and not idtransaccion='" + Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_ID)) + "'");  
+
+                    if (tb_op.Rows.Count > 0)
+                    {
+                        MessageBox.Show("No se Puede Eliminar el Documento esta Referenciado a otro Documento ", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        DialogResult Result = MessageBox.Show("Esta Seguro de Eliminar el Documento", "Verificación !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (Result == DialogResult.Yes)
+                        {
+                            string eliminarcabecera = NFunciones.ExecuteSQL("DELETE tb_cobrarpagardoc WHERE IDEMPRESA='" + VariablesGenerales.Empresa + "' AND idcobrarpagardoc='" + Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_ID)) + "'");
+                            string detalle = NFunciones.ExecuteSQL("DELETE tb_dcobrarpagardoc WHERE IDEMPRESA='" + VariablesGenerales.Empresa + "' AND idcobrarpagardoc='" + Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_ID)) + "'");
+                            string mov = NFunciones.ExecuteSQL("DELETE tb_movcobrarpagardoc_drakback WHERE IDEMPRESA='" + VariablesGenerales.Empresa + "' AND idcobrarpagardoc='" + Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_ID)) + "' AND IDTRANSACCION='" + Convert.ToString(vista_datos.GetFocusedRowCellValue(COL_ID)) + "'");
+                            LlegarGrilla();
+                            MessageBox.Show("Se Elimino Correctamente", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Elija un registro ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
     }
 }

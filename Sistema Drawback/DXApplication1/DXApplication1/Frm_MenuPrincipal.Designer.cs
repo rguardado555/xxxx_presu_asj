@@ -50,12 +50,9 @@
             this.btn_rpt_saldos = new DevExpress.XtraBars.BarButtonItem();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
-            this.cbo_empresas = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.btn_aceptar = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.lb_fecha = new DevExpress.XtraBars.BarStaticItem();
             this.lb_empresaseleccionada = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.lb_fecha = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -63,21 +60,26 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.lb_empresa = new DevExpress.XtraBars.BarStaticItem();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.panel_contenedor = new DevExpress.XtraEditors.PanelControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.cbo_empresaseleccionada = new DevExpress.XtraEditors.LookUpEdit();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bar_menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panel_contenedor)).BeginInit();
+            this.panel_contenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_empresaseleccionada.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Money Twins";
             // 
             // bar_menu
             // 
@@ -109,9 +111,6 @@
             this.btn_empresas,
             this.btn_txt,
             this.lb_empresa,
-            this.cbo_empresas,
-            this.btn_aceptar,
-            this.barStaticItem1,
             this.lb_fecha,
             this.lb_empresaseleccionada,
             this.barStaticItem3});
@@ -182,6 +181,8 @@
             // 
             this.btn_grupopro.Caption = "Grupos";
             this.btn_grupopro.Id = 12;
+            this.btn_grupopro.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_grupopro.ImageOptions.Image")));
+            this.btn_grupopro.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_grupopro.ImageOptions.LargeImage")));
             this.btn_grupopro.Name = "btn_grupopro";
             this.btn_grupopro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_grupopro_ItemClick);
             // 
@@ -189,6 +190,8 @@
             // 
             this.btn_subgrupo.Caption = "SubGrupos";
             this.btn_subgrupo.Id = 13;
+            this.btn_subgrupo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_subgrupo.ImageOptions.Image")));
+            this.btn_subgrupo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_subgrupo.ImageOptions.LargeImage")));
             this.btn_subgrupo.Name = "btn_subgrupo";
             this.btn_subgrupo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_subgrupo_ItemClick);
             // 
@@ -196,6 +199,8 @@
             // 
             this.btn_productos.Caption = "Productos";
             this.btn_productos.Id = 14;
+            this.btn_productos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_productos.ImageOptions.Image")));
+            this.btn_productos.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_productos.ImageOptions.LargeImage")));
             this.btn_productos.Name = "btn_productos";
             this.btn_productos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_productos_ItemClick);
             // 
@@ -255,6 +260,7 @@
             this.btn_txt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_txt.ImageOptions.Image")));
             this.btn_txt.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_txt.ImageOptions.LargeImage")));
             this.btn_txt.Name = "btn_txt";
+            this.btn_txt.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btn_txt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_txt_ItemClick);
             // 
             // btn_reportes
@@ -290,9 +296,6 @@
             this.bar3.DockRow = 0;
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.cbo_empresas, "", false, true, true, 155),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_aceptar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.lb_empresaseleccionada, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem3),
             new DevExpress.XtraBars.LinkPersistInfo(this.lb_fecha)});
@@ -300,45 +303,6 @@
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Barra de estado";
-            // 
-            // cbo_empresas
-            // 
-            this.cbo_empresas.Caption = "barEditItem1";
-            this.cbo_empresas.Edit = this.repositoryItemLookUpEdit1;
-            this.cbo_empresas.Id = 18;
-            this.cbo_empresas.Name = "cbo_empresas";
-            // 
-            // repositoryItemLookUpEdit1
-            // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            this.repositoryItemLookUpEdit1.NullText = "[Seleccione]";
-            // 
-            // btn_aceptar
-            // 
-            this.btn_aceptar.Border = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btn_aceptar.Caption = "Aceptar";
-            this.btn_aceptar.Id = 19;
-            this.btn_aceptar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_aceptar.ImageOptions.Image")));
-            this.btn_aceptar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_aceptar.ImageOptions.LargeImage")));
-            this.btn_aceptar.Name = "btn_aceptar";
-            this.btn_aceptar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
-            // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.barStaticItem1.Caption = "          ";
-            this.barStaticItem1.Id = 20;
-            this.barStaticItem1.Name = "barStaticItem1";
-            // 
-            // lb_fecha
-            // 
-            this.lb_fecha.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.lb_fecha.Caption = "fecha";
-            this.lb_fecha.Id = 21;
-            this.lb_fecha.Name = "lb_fecha";
             // 
             // lb_empresaseleccionada
             // 
@@ -349,37 +313,51 @@
             this.lb_empresaseleccionada.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("lb_empresaseleccionada.ImageOptions.LargeImage")));
             this.lb_empresaseleccionada.Name = "lb_empresaseleccionada";
             // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.barStaticItem3.Caption = "                        ";
+            this.barStaticItem3.Id = 23;
+            this.barStaticItem3.Name = "barStaticItem3";
+            // 
+            // lb_fecha
+            // 
+            this.lb_fecha.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.lb_fecha.Caption = "fecha";
+            this.lb_fecha.Id = 21;
+            this.lb_fecha.Name = "lb_fecha";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.bar_menu;
-            this.barDockControlTop.Size = new System.Drawing.Size(1139, 64);
+            this.barDockControlTop.Size = new System.Drawing.Size(1139, 70);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 537);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 540);
             this.barDockControlBottom.Manager = this.bar_menu;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1139, 30);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1139, 27);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 64);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 70);
             this.barDockControlLeft.Manager = this.bar_menu;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 473);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 470);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1139, 64);
+            this.barDockControlRight.Location = new System.Drawing.Point(1139, 70);
             this.barDockControlRight.Manager = this.bar_menu;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 473);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 470);
             // 
             // barButtonItem1
             // 
@@ -400,33 +378,45 @@
             this.lb_empresa.Id = 17;
             this.lb_empresa.Name = "lb_empresa";
             // 
-            // panelControl1
+            // repositoryItemLookUpEdit1
             // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 64);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1139, 473);
-            this.panelControl1.TabIndex = 4;
-            this.panelControl1.Visible = false;
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            this.repositoryItemLookUpEdit1.NullText = "[Seleccione]";
+            // 
+            // panel_contenedor
+            // 
+            this.panel_contenedor.Appearance.BackColor = System.Drawing.Color.White;
+            this.panel_contenedor.Appearance.Options.UseBackColor = true;
+            this.panel_contenedor.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panel_contenedor.Controls.Add(this.label4);
+            this.panel_contenedor.Controls.Add(this.label3);
+            this.panel_contenedor.Controls.Add(this.label2);
+            this.panel_contenedor.Controls.Add(this.label1);
+            this.panel_contenedor.Controls.Add(this.pictureBox1);
+            this.panel_contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_contenedor.Location = new System.Drawing.Point(0, 70);
+            this.panel_contenedor.Name = "panel_contenedor";
+            this.panel_contenedor.Size = new System.Drawing.Size(1139, 470);
+            this.panel_contenedor.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(28, 118);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(234, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // cbo_empresaseleccionada
-            // 
-            this.cbo_empresaseleccionada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbo_empresaseleccionada.Location = new System.Drawing.Point(6, 543);
-            this.cbo_empresaseleccionada.MenuManager = this.bar_menu;
-            this.cbo_empresaseleccionada.Name = "cbo_empresaseleccionada";
-            this.cbo_empresaseleccionada.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_empresaseleccionada.Properties.NullText = "[Seleccionar]";
-            this.cbo_empresaseleccionada.Size = new System.Drawing.Size(157, 20);
-            this.cbo_empresaseleccionada.TabIndex = 0;
+            this.xtraTabbedMdiManager1.PageAdded += new DevExpress.XtraTabbedMdi.MdiTabPageEventHandler(this.xtraTabbedMdiManager1_PageAdded);
+            this.xtraTabbedMdiManager1.PageRemoved += new DevExpress.XtraTabbedMdi.MdiTabPageEventHandler(this.xtraTabbedMdiManager1_PageRemoved);
             // 
             // timer1
             // 
@@ -434,20 +424,53 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // barStaticItem3
+            // label1
             // 
-            this.barStaticItem3.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.barStaticItem3.Caption = "                        ";
-            this.barStaticItem3.Id = 23;
-            this.barStaticItem3.Name = "barStaticItem3";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label1.Location = new System.Drawing.Point(10, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 47);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Soluciones ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(171, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 47);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Informaticas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(238, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 25);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "a tu medida !";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Sitka Banner", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(23, 249);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(307, 30);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "E-mail: rguardado.rsoft@gmail.com";
             // 
             // Frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 567);
-            this.Controls.Add(this.cbo_empresaseleccionada);
-            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.panel_contenedor);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -455,14 +478,16 @@
             this.IsMdiContainer = true;
             this.Name = "Frm_MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_MenuPrincipal";
+            this.Text = "Sistema DrawBack";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_MenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bar_menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panel_contenedor)).EndInit();
+            this.panel_contenedor.ResumeLayout(false);
+            this.panel_contenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_empresaseleccionada.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,7 +509,7 @@
         private DevExpress.XtraBars.BarSubItem btn_reportes;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panel_contenedor;
         private DevExpress.XtraBars.BarButtonItem btn_compras;
         private DevExpress.XtraBars.BarButtonItem btn_ventas;
         private DevExpress.XtraBars.BarButtonItem btn_duas;
@@ -499,14 +524,15 @@
         private DevExpress.XtraBars.BarButtonItem btn_empresas;
         private DevExpress.XtraBars.BarButtonItem btn_txt;
         private DevExpress.XtraBars.BarStaticItem lb_empresa;
-        private DevExpress.XtraBars.BarEditItem cbo_empresas;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
-        private DevExpress.XtraBars.BarButtonItem btn_aceptar;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.BarStaticItem lb_fecha;
-        private DevExpress.XtraEditors.LookUpEdit cbo_empresaseleccionada;
         private DevExpress.XtraBars.BarStaticItem lb_empresaseleccionada;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }

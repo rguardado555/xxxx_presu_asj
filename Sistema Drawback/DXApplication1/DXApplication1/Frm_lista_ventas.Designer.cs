@@ -30,12 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_lista_ventas));
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            this.COL_REF = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_ESTADO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.menu_opciones = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btn_nuevo = new DevExpress.XtraBars.BarButtonItem();
             this.btn_editar = new DevExpress.XtraBars.BarButtonItem();
             this.btn_eliminar = new DevExpress.XtraBars.BarButtonItem();
             this.btn_activar = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_importarventas = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -50,13 +55,39 @@
             this.COL_DOCUMENTO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_CODCLIENTE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_RAZONSOCIAL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.COL_ESTADO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_FECHA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).BeginInit();
             this.SuspendLayout();
+            // 
+            // COL_REF
+            // 
+            this.COL_REF.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.COL_REF.AppearanceCell.Options.UseFont = true;
+            this.COL_REF.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.COL_REF.AppearanceHeader.Options.UseFont = true;
+            this.COL_REF.Caption = "ID REF";
+            this.COL_REF.FieldName = "REF";
+            this.COL_REF.Name = "COL_REF";
+            this.COL_REF.OptionsColumn.AllowEdit = false;
+            this.COL_REF.Visible = true;
+            this.COL_REF.VisibleIndex = 6;
+            // 
+            // COL_ESTADO
+            // 
+            this.COL_ESTADO.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.COL_ESTADO.AppearanceCell.Options.UseFont = true;
+            this.COL_ESTADO.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.COL_ESTADO.AppearanceHeader.Options.UseFont = true;
+            this.COL_ESTADO.Caption = "ESTADO";
+            this.COL_ESTADO.FieldName = "ESTADO";
+            this.COL_ESTADO.Name = "COL_ESTADO";
+            this.COL_ESTADO.OptionsColumn.AllowEdit = false;
+            this.COL_ESTADO.Visible = true;
+            this.COL_ESTADO.VisibleIndex = 5;
+            this.COL_ESTADO.Width = 140;
             // 
             // menu_opciones
             // 
@@ -75,9 +106,10 @@
             this.barButtonItem4,
             this.barButtonItem5,
             this.btn_eliminar,
-            this.btn_activar});
+            this.btn_activar,
+            this.btn_importarventas});
             this.menu_opciones.MainMenu = this.bar2;
-            this.menu_opciones.MaxItemId = 7;
+            this.menu_opciones.MaxItemId = 8;
             // 
             // bar1
             // 
@@ -89,7 +121,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_nuevo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_editar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_eliminar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_activar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_activar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_importarventas, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.OptionsBar.DrawBorder = false;
             this.bar1.OptionsBar.DrawDragBorder = false;
             this.bar1.Text = "Herramientas";
@@ -119,6 +152,7 @@
             this.btn_eliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.Image")));
             this.btn_eliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.LargeImage")));
             this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_eliminar_ItemClick_1);
             // 
             // btn_activar
             // 
@@ -128,6 +162,15 @@
             this.btn_activar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_activar.ImageOptions.LargeImage")));
             this.btn_activar.Name = "btn_activar";
             this.btn_activar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // btn_importarventas
+            // 
+            this.btn_importarventas.Caption = "Importar Ventas";
+            this.btn_importarventas.Id = 7;
+            this.btn_importarventas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_importarventas.ImageOptions.Image")));
+            this.btn_importarventas.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_importarventas.ImageOptions.LargeImage")));
+            this.btn_importarventas.Name = "btn_importarventas";
+            this.btn_importarventas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_importarventas_ItemClick);
             // 
             // bar2
             // 
@@ -145,15 +188,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.menu_opciones;
-            this.barDockControlTop.Size = new System.Drawing.Size(829, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(904, 51);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 392);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 468);
             this.barDockControlBottom.Manager = this.menu_opciones;
-            this.barDockControlBottom.Size = new System.Drawing.Size(829, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(904, 0);
             // 
             // barDockControlLeft
             // 
@@ -161,15 +204,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
             this.barDockControlLeft.Manager = this.menu_opciones;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 341);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 417);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(829, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(904, 51);
             this.barDockControlRight.Manager = this.menu_opciones;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 341);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 417);
             // 
             // barButtonItem2
             // 
@@ -201,7 +244,7 @@
             this.dtg_datos.Location = new System.Drawing.Point(0, 53);
             this.dtg_datos.MainView = this.vista_datos;
             this.dtg_datos.Name = "dtg_datos";
-            this.dtg_datos.Size = new System.Drawing.Size(829, 338);
+            this.dtg_datos.Size = new System.Drawing.Size(904, 414);
             this.dtg_datos.TabIndex = 5;
             this.dtg_datos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vista_datos});
@@ -215,7 +258,16 @@
             this.COL_CODCLIENTE,
             this.COL_RAZONSOCIAL,
             this.COL_ESTADO,
-            this.COL_FECHA});
+            this.COL_FECHA,
+            this.COL_REF});
+            gridFormatRule1.Column = this.COL_REF;
+            gridFormatRule1.ColumnApplyTo = this.COL_ESTADO;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleExpression1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            formatConditionRuleExpression1.Appearance.Options.UseImage = true;
+            formatConditionRuleExpression1.Expression = "[REF] <> \'\'";
+            gridFormatRule1.Rule = formatConditionRuleExpression1;
+            this.vista_datos.FormatRules.Add(gridFormatRule1);
             this.vista_datos.GridControl = this.dtg_datos;
             this.vista_datos.Name = "vista_datos";
             this.vista_datos.OptionsFind.AllowFindPanel = false;
@@ -277,20 +329,6 @@
             this.COL_RAZONSOCIAL.VisibleIndex = 3;
             this.COL_RAZONSOCIAL.Width = 140;
             // 
-            // COL_ESTADO
-            // 
-            this.COL_ESTADO.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.COL_ESTADO.AppearanceCell.Options.UseFont = true;
-            this.COL_ESTADO.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.COL_ESTADO.AppearanceHeader.Options.UseFont = true;
-            this.COL_ESTADO.Caption = "ESTADO";
-            this.COL_ESTADO.FieldName = "ESTADO";
-            this.COL_ESTADO.Name = "COL_ESTADO";
-            this.COL_ESTADO.OptionsColumn.AllowEdit = false;
-            this.COL_ESTADO.Visible = true;
-            this.COL_ESTADO.VisibleIndex = 5;
-            this.COL_ESTADO.Width = 140;
-            // 
             // COL_FECHA
             // 
             this.COL_FECHA.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,7 +352,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 392);
+            this.ClientSize = new System.Drawing.Size(904, 468);
             this.Controls.Add(this.dtg_datos);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -356,5 +394,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn COL_ESTADO;
         private DevExpress.XtraGrid.Columns.GridColumn COL_FECHA;
         private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraGrid.Columns.GridColumn COL_REF;
+        private DevExpress.XtraBars.BarButtonItem btn_importarventas;
     }
 }

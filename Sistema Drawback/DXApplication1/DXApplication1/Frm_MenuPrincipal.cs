@@ -109,32 +109,25 @@ namespace DXApplication1
 
         private void Frm_MenuPrincipal_Load(object sender, EventArgs e)
         {
-            llenarEmpresa();
-            lb_empresaseleccionada.Caption = "EMPRESA SELECCIONADA : (Ninguna)";
+            lb_empresaseleccionada.Caption = "EMPRESA SELECCIONADA : " + VariablesGenerales.Nombreempresa;
            
         }
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (cbo_empresaseleccionada.Text.Equals("[Seleccionar]"))
-            {
-                MessageBox.Show("Seleccione Empresa Primero !!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (xtraTabbedMdiManager1.Pages.Count>0) {
-                MessageBox.Show("No se Puede Cambiar Empresa , Primero Cierre todas las Ventanas !!","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                return;
-            }
-            VariablesGenerales.Empresa = cbo_empresaseleccionada.EditValue.ToString();
-            lb_empresaseleccionada.Caption = "EMPRESA SELECCIONADA : " + cbo_empresaseleccionada.EditValue.ToString()+ " - " + cbo_empresaseleccionada.Text.ToString();
+          
 
         }
-        void llenarEmpresa()
+       void manejarfondo()
         {
-            cbo_empresaseleccionada.Properties.DataSource= NFunciones.TABLASQL("select idempresa Codigo,razonsocial Empresa from tb_empresa order by idempresa asc");
-            cbo_empresaseleccionada.Properties.ValueMember = "Codigo";
-            cbo_empresaseleccionada.Properties.DisplayMember = "Empresa";
-
+            if (xtraTabbedMdiManager1.Pages.Count>0)
+            {
+                panel_contenedor.Visible = false;
+            }
+            else
+            {
+                panel_contenedor.Visible = true;
+            }
         }
 
         private void btn_duas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -169,11 +162,27 @@ namespace DXApplication1
                 MessageBox.Show("Debe Seleccionar Empresa Primero", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            else
+            {
+                Frm_ReporteFacturasPendientes Objrepor = new Frm_ReporteFacturasPendientes();
+                Objrepor.MdiParent = this;
+                Objrepor.Show();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lb_fecha.Caption = "Fecha : " + DateTime.Now.ToLongDateString() + " , Hora : " + DateTime.Now.ToShortTimeString();
+        }
+
+        private void xtraTabbedMdiManager1_PageAdded(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
+        {
+            manejarfondo();
+        }
+
+        private void xtraTabbedMdiManager1_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
+        {
+            manejarfondo();
         }
     }
 }

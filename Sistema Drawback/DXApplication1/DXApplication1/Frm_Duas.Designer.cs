@@ -91,6 +91,7 @@
             this.monoFlat_Label3 = new MonoFlat.MonoFlat_Label();
             this.dtp_fechaoperacion = new DevExpress.XtraEditors.DateEdit();
             this.monoFlat_Label7 = new MonoFlat.MonoFlat_Label();
+            this.COL_ITEM = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).BeginInit();
             this.monoFlat_Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_insumos)).BeginInit();
@@ -164,6 +165,8 @@
             this.btn_editar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_editar.ImageOptions.Image")));
             this.btn_editar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_editar.ImageOptions.LargeImage")));
             this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btn_editar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_editar_ItemClick);
             // 
             // btn_guardar
             // 
@@ -181,6 +184,7 @@
             this.btn_cancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_cancelar.ImageOptions.Image")));
             this.btn_cancelar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_cancelar.ImageOptions.LargeImage")));
             this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_cancelar_ItemClick);
             // 
             // btn_eliminar
             // 
@@ -189,6 +193,7 @@
             this.btn_eliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.Image")));
             this.btn_eliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.LargeImage")));
             this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_eliminar_ItemClick);
             // 
             // btn_exit
             // 
@@ -296,7 +301,8 @@
             this.COL_IDPRODUCTOIN,
             this.COL_PRODUCTOIN,
             this.COL_UNIDADIN,
-            this.COL_CANTIDAD});
+            this.COL_CANTIDAD,
+            this.COL_ITEM});
             this.vista_insumos.GridControl = this.dtg_insumos;
             this.vista_insumos.Name = "vista_insumos";
             this.vista_insumos.OptionsView.ShowGroupPanel = false;
@@ -324,6 +330,7 @@
             this.COL_DOCUMENTOIN.Caption = "DOCUMENTO";
             this.COL_DOCUMENTOIN.FieldName = "DOCUMENTO";
             this.COL_DOCUMENTOIN.Name = "COL_DOCUMENTOIN";
+            this.COL_DOCUMENTOIN.OptionsColumn.AllowEdit = false;
             this.COL_DOCUMENTOIN.Visible = true;
             this.COL_DOCUMENTOIN.VisibleIndex = 0;
             // 
@@ -350,6 +357,7 @@
             this.COL_PROVEEDORIN.Caption = "PROVEEDOR";
             this.COL_PROVEEDORIN.FieldName = "PROVEEDOR";
             this.COL_PROVEEDORIN.Name = "COL_PROVEEDORIN";
+            this.COL_PROVEEDORIN.OptionsColumn.AllowEdit = false;
             this.COL_PROVEEDORIN.Visible = true;
             this.COL_PROVEEDORIN.VisibleIndex = 1;
             // 
@@ -376,8 +384,9 @@
             this.COL_PRODUCTOIN.Caption = "PRODUCTO";
             this.COL_PRODUCTOIN.FieldName = "PRODUCTO";
             this.COL_PRODUCTOIN.Name = "COL_PRODUCTOIN";
+            this.COL_PRODUCTOIN.OptionsColumn.AllowEdit = false;
             this.COL_PRODUCTOIN.Visible = true;
-            this.COL_PRODUCTOIN.VisibleIndex = 2;
+            this.COL_PRODUCTOIN.VisibleIndex = 3;
             // 
             // COL_UNIDADIN
             // 
@@ -390,8 +399,9 @@
             this.COL_UNIDADIN.Caption = "UNIDAD";
             this.COL_UNIDADIN.FieldName = "UNIDAD";
             this.COL_UNIDADIN.Name = "COL_UNIDADIN";
+            this.COL_UNIDADIN.OptionsColumn.AllowEdit = false;
             this.COL_UNIDADIN.Visible = true;
-            this.COL_UNIDADIN.VisibleIndex = 3;
+            this.COL_UNIDADIN.VisibleIndex = 4;
             // 
             // COL_CANTIDAD
             // 
@@ -404,8 +414,9 @@
             this.COL_CANTIDAD.Caption = "CANTIDAD";
             this.COL_CANTIDAD.FieldName = "CANTIDAD";
             this.COL_CANTIDAD.Name = "COL_CANTIDAD";
+            this.COL_CANTIDAD.OptionsColumn.AllowEdit = false;
             this.COL_CANTIDAD.Visible = true;
-            this.COL_CANTIDAD.VisibleIndex = 4;
+            this.COL_CANTIDAD.VisibleIndex = 5;
             // 
             // dtg_exportaciones
             // 
@@ -512,7 +523,7 @@
             // 
             // cbo_exportaciones
             // 
-            this.cbo_exportaciones.Location = new System.Drawing.Point(26, 21);
+            this.cbo_exportaciones.Location = new System.Drawing.Point(205, 22);
             this.cbo_exportaciones.MenuManager = this.menu_opciones;
             this.cbo_exportaciones.Name = "cbo_exportaciones";
             this.cbo_exportaciones.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -522,7 +533,7 @@
             this.cbo_exportaciones.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbo_exportaciones.Properties.NullText = "[Seleccione]";
-            this.cbo_exportaciones.Size = new System.Drawing.Size(396, 26);
+            this.cbo_exportaciones.Size = new System.Drawing.Size(322, 26);
             this.cbo_exportaciones.TabIndex = 35;
             // 
             // txt_totaldrawback
@@ -633,7 +644,7 @@
             this.monoFlat_Label2.BackColor = System.Drawing.Color.Transparent;
             this.monoFlat_Label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monoFlat_Label2.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label2.Location = new System.Drawing.Point(629, 23);
+            this.monoFlat_Label2.Location = new System.Drawing.Point(592, 26);
             this.monoFlat_Label2.Name = "monoFlat_Label2";
             this.monoFlat_Label2.Size = new System.Drawing.Size(255, 20);
             this.monoFlat_Label2.TabIndex = 17;
@@ -656,7 +667,7 @@
             this.monoFlat_Label1.BackColor = System.Drawing.Color.Transparent;
             this.monoFlat_Label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monoFlat_Label1.ForeColor = System.Drawing.Color.White;
-            this.monoFlat_Label1.Location = new System.Drawing.Point(22, 0);
+            this.monoFlat_Label1.Location = new System.Drawing.Point(3, 26);
             this.monoFlat_Label1.Name = "monoFlat_Label1";
             this.monoFlat_Label1.Size = new System.Drawing.Size(196, 20);
             this.monoFlat_Label1.TabIndex = 16;
@@ -696,6 +707,7 @@
             this.txt_iddua.Properties.Appearance.Options.UseFont = true;
             this.txt_iddua.Size = new System.Drawing.Size(276, 24);
             this.txt_iddua.TabIndex = 36;
+            this.txt_iddua.Visible = false;
             // 
             // monoFlat_Label13
             // 
@@ -708,6 +720,7 @@
             this.monoFlat_Label13.Size = new System.Drawing.Size(41, 17);
             this.monoFlat_Label13.TabIndex = 35;
             this.monoFlat_Label13.Text = "iddua";
+            this.monoFlat_Label13.Visible = false;
             // 
             // txt_ncajas
             // 
@@ -829,10 +842,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtp_fechaoperacion.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtp_fechaoperacion.Properties.ReadOnly = true;
             this.dtp_fechaoperacion.Size = new System.Drawing.Size(124, 24);
             this.dtp_fechaoperacion.TabIndex = 15;
-            this.dtp_fechaoperacion.Visible = false;
             // 
             // monoFlat_Label7
             // 
@@ -845,7 +856,19 @@
             this.monoFlat_Label7.Size = new System.Drawing.Size(106, 17);
             this.monoFlat_Label7.TabIndex = 14;
             this.monoFlat_Label7.Text = "Fecha Operación";
-            this.monoFlat_Label7.Visible = false;
+            // 
+            // COL_ITEM
+            // 
+            this.COL_ITEM.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.COL_ITEM.AppearanceCell.Options.UseFont = true;
+            this.COL_ITEM.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.COL_ITEM.AppearanceHeader.Options.UseFont = true;
+            this.COL_ITEM.Caption = "ITEM";
+            this.COL_ITEM.FieldName = "ITEM";
+            this.COL_ITEM.Name = "COL_ITEM";
+            this.COL_ITEM.OptionsColumn.AllowEdit = false;
+            this.COL_ITEM.Visible = true;
+            this.COL_ITEM.VisibleIndex = 2;
             // 
             // Frm_Duas
             // 
@@ -953,5 +976,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn COL_CANTIDAD;
         private DevExpress.XtraEditors.TextEdit txt_iddua;
         private MonoFlat.MonoFlat_Label monoFlat_Label13;
+        private DevExpress.XtraGrid.Columns.GridColumn COL_ITEM;
     }
 }

@@ -10,13 +10,15 @@ namespace DXApplication1
 {
     static class Program
     {
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         /// 
         // --- datos del documento de venta
         public static DataTable detalleinsumos;
-
+        public static string cargando = "N";
        
         [STAThread]
         static void Main()

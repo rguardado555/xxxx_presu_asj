@@ -35,7 +35,7 @@
             this.btn_nuevo = new DevExpress.XtraBars.BarButtonItem();
             this.btn_editar = new DevExpress.XtraBars.BarButtonItem();
             this.btn_eliminar = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_activar = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_txt = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -52,7 +52,7 @@
             this.COL_ESTADO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_FECHA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_FOB = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_EXPORTACIONDOC = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_datos)).BeginInit();
@@ -75,7 +75,7 @@
             this.barButtonItem4,
             this.barButtonItem5,
             this.btn_eliminar,
-            this.btn_activar});
+            this.btn_txt});
             this.menu_opciones.MainMenu = this.bar2;
             this.menu_opciones.MaxItemId = 7;
             // 
@@ -89,7 +89,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_nuevo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_editar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_eliminar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_activar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_txt, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.OptionsBar.DrawBorder = false;
             this.bar1.OptionsBar.DrawDragBorder = false;
             this.bar1.Text = "Herramientas";
@@ -110,6 +110,8 @@
             this.btn_editar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_editar.ImageOptions.Image")));
             this.btn_editar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_editar.ImageOptions.LargeImage")));
             this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btn_editar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_editar_ItemClick);
             // 
             // btn_eliminar
             // 
@@ -118,15 +120,16 @@
             this.btn_eliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.Image")));
             this.btn_eliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.ImageOptions.LargeImage")));
             this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_eliminar_ItemClick);
             // 
-            // btn_activar
+            // btn_txt
             // 
-            this.btn_activar.Caption = "&Activar/&Anular";
-            this.btn_activar.Id = 6;
-            this.btn_activar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_activar.ImageOptions.Image")));
-            this.btn_activar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_activar.ImageOptions.LargeImage")));
-            this.btn_activar.Name = "btn_activar";
-            this.btn_activar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btn_txt.Caption = "&Generar Txt Sunat";
+            this.btn_txt.Id = 6;
+            this.btn_txt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_txt.ImageOptions.Image")));
+            this.btn_txt.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_txt.ImageOptions.LargeImage")));
+            this.btn_txt.Name = "btn_txt";
+            this.btn_txt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_txt_ItemClick);
             // 
             // bar2
             // 
@@ -196,19 +199,21 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // dtg_datos
             // 
             this.dtg_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtg_datos.Location = new System.Drawing.Point(0, 57);
+            this.dtg_datos.Location = new System.Drawing.Point(0, 50);
             this.dtg_datos.MainView = this.vista_datos;
             this.dtg_datos.Name = "dtg_datos";
-            this.dtg_datos.Size = new System.Drawing.Size(865, 338);
+            this.dtg_datos.Size = new System.Drawing.Size(865, 345);
             this.dtg_datos.TabIndex = 4;
             this.dtg_datos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vista_datos});
+            this.dtg_datos.DoubleClick += new System.EventHandler(this.dtg_datos_DoubleClick);
             // 
             // vista_datos
             // 
@@ -218,7 +223,7 @@
             this.COL_ESTADO,
             this.COL_FECHA,
             this.COL_FOB,
-            this.gridColumn1});
+            this.COL_EXPORTACIONDOC});
             this.vista_datos.GridControl = this.dtg_datos;
             this.vista_datos.Name = "vista_datos";
             this.vista_datos.OptionsFind.AllowFindPanel = false;
@@ -236,7 +241,7 @@
             this.COL_ID.OptionsColumn.AllowEdit = false;
             this.COL_ID.Visible = true;
             this.COL_ID.VisibleIndex = 0;
-            this.COL_ID.Width = 122;
+            this.COL_ID.Width = 95;
             // 
             // COL_DOCUMENTO
             // 
@@ -244,13 +249,13 @@
             this.COL_DOCUMENTO.AppearanceCell.Options.UseFont = true;
             this.COL_DOCUMENTO.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COL_DOCUMENTO.AppearanceHeader.Options.UseFont = true;
-            this.COL_DOCUMENTO.Caption = "DOCUMENTO";
-            this.COL_DOCUMENTO.FieldName = "DOC";
+            this.COL_DOCUMENTO.Caption = "DUA";
+            this.COL_DOCUMENTO.FieldName = "DUA";
             this.COL_DOCUMENTO.Name = "COL_DOCUMENTO";
             this.COL_DOCUMENTO.OptionsColumn.AllowEdit = false;
             this.COL_DOCUMENTO.Visible = true;
             this.COL_DOCUMENTO.VisibleIndex = 1;
-            this.COL_DOCUMENTO.Width = 159;
+            this.COL_DOCUMENTO.Width = 120;
             // 
             // COL_ESTADO
             // 
@@ -263,8 +268,8 @@
             this.COL_ESTADO.Name = "COL_ESTADO";
             this.COL_ESTADO.OptionsColumn.AllowEdit = false;
             this.COL_ESTADO.Visible = true;
-            this.COL_ESTADO.VisibleIndex = 3;
-            this.COL_ESTADO.Width = 154;
+            this.COL_ESTADO.VisibleIndex = 5;
+            this.COL_ESTADO.Width = 136;
             // 
             // COL_FECHA
             // 
@@ -278,22 +283,35 @@
             this.COL_FECHA.OptionsColumn.AllowEdit = false;
             this.COL_FECHA.Visible = true;
             this.COL_FECHA.VisibleIndex = 2;
-            this.COL_FECHA.Width = 94;
+            this.COL_FECHA.Width = 159;
             // 
             // COL_FOB
             // 
+            this.COL_FOB.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.COL_FOB.AppearanceCell.Options.UseFont = true;
+            this.COL_FOB.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.COL_FOB.AppearanceHeader.Options.UseFont = true;
             this.COL_FOB.Caption = "FOB X RESTITUIR";
             this.COL_FOB.FieldName = "FOB";
             this.COL_FOB.Name = "COL_FOB";
+            this.COL_FOB.OptionsColumn.AllowEdit = false;
             this.COL_FOB.Visible = true;
             this.COL_FOB.VisibleIndex = 4;
+            this.COL_FOB.Width = 154;
             // 
-            // gridColumn1
+            // COL_EXPORTACIONDOC
             // 
-            this.gridColumn1.Caption = "EXP";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 5;
+            this.COL_EXPORTACIONDOC.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.COL_EXPORTACIONDOC.AppearanceCell.Options.UseFont = true;
+            this.COL_EXPORTACIONDOC.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.COL_EXPORTACIONDOC.AppearanceHeader.Options.UseFont = true;
+            this.COL_EXPORTACIONDOC.Caption = "EXPORTACION";
+            this.COL_EXPORTACIONDOC.FieldName = "REF";
+            this.COL_EXPORTACIONDOC.Name = "COL_EXPORTACIONDOC";
+            this.COL_EXPORTACIONDOC.OptionsColumn.AllowEdit = false;
+            this.COL_EXPORTACIONDOC.Visible = true;
+            this.COL_EXPORTACIONDOC.VisibleIndex = 3;
+            this.COL_EXPORTACIONDOC.Width = 183;
             // 
             // Frm_Lista_Duas
             // 
@@ -306,7 +324,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Lista_Duas";
-            this.Text = "Frm_Lista_Duas";
+            this.Text = "Listado de Duas";
             this.Load += new System.EventHandler(this.Frm_Lista_Duas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.menu_opciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_datos)).EndInit();
@@ -323,7 +341,7 @@
         private DevExpress.XtraBars.BarButtonItem btn_nuevo;
         private DevExpress.XtraBars.BarButtonItem btn_editar;
         private DevExpress.XtraBars.BarButtonItem btn_eliminar;
-        private DevExpress.XtraBars.BarButtonItem btn_activar;
+        private DevExpress.XtraBars.BarButtonItem btn_txt;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -340,6 +358,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn COL_ESTADO;
         private DevExpress.XtraGrid.Columns.GridColumn COL_FECHA;
         private DevExpress.XtraGrid.Columns.GridColumn COL_FOB;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn COL_EXPORTACIONDOC;
     }
 }

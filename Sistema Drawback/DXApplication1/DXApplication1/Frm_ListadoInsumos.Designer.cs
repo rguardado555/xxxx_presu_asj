@@ -42,6 +42,7 @@
             this.COL_UNIDAD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_CANTIDAD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.COL_SOLICITADA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.COL_ITEM = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_insumos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_insumos)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +88,8 @@
             this.COL_PRODUCTO,
             this.COL_UNIDAD,
             this.COL_CANTIDAD,
-            this.COL_SOLICITADA});
+            this.COL_SOLICITADA,
+            this.COL_ITEM});
             this.vista_insumos.GridControl = this.dtg_insumos;
             this.vista_insumos.Name = "vista_insumos";
             this.vista_insumos.OptionsView.ShowGroupPanel = false;
@@ -166,7 +168,7 @@
             this.COL_PRODUCTO.Name = "COL_PRODUCTO";
             this.COL_PRODUCTO.OptionsColumn.AllowEdit = false;
             this.COL_PRODUCTO.Visible = true;
-            this.COL_PRODUCTO.VisibleIndex = 2;
+            this.COL_PRODUCTO.VisibleIndex = 3;
             this.COL_PRODUCTO.Width = 101;
             // 
             // COL_UNIDAD
@@ -184,7 +186,7 @@
             this.COL_UNIDAD.Name = "COL_UNIDAD";
             this.COL_UNIDAD.OptionsColumn.AllowEdit = false;
             this.COL_UNIDAD.Visible = true;
-            this.COL_UNIDAD.VisibleIndex = 3;
+            this.COL_UNIDAD.VisibleIndex = 4;
             this.COL_UNIDAD.Width = 101;
             // 
             // COL_CANTIDAD
@@ -204,7 +206,7 @@
             this.COL_CANTIDAD.Name = "COL_CANTIDAD";
             this.COL_CANTIDAD.OptionsColumn.AllowEdit = false;
             this.COL_CANTIDAD.Visible = true;
-            this.COL_CANTIDAD.VisibleIndex = 4;
+            this.COL_CANTIDAD.VisibleIndex = 5;
             this.COL_CANTIDAD.Width = 101;
             // 
             // COL_SOLICITADA
@@ -223,8 +225,21 @@
             this.COL_SOLICITADA.FieldName = "SOLICITADA";
             this.COL_SOLICITADA.Name = "COL_SOLICITADA";
             this.COL_SOLICITADA.Visible = true;
-            this.COL_SOLICITADA.VisibleIndex = 5;
+            this.COL_SOLICITADA.VisibleIndex = 6;
             this.COL_SOLICITADA.Width = 114;
+            // 
+            // COL_ITEM
+            // 
+            this.COL_ITEM.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.COL_ITEM.AppearanceCell.Options.UseFont = true;
+            this.COL_ITEM.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.COL_ITEM.AppearanceHeader.Options.UseFont = true;
+            this.COL_ITEM.Caption = "ITEM";
+            this.COL_ITEM.FieldName = "ITEM";
+            this.COL_ITEM.Name = "COL_ITEM";
+            this.COL_ITEM.OptionsColumn.AllowEdit = false;
+            this.COL_ITEM.Visible = true;
+            this.COL_ITEM.VisibleIndex = 2;
             // 
             // Frm_ListadoInsumos
             // 
@@ -260,5 +275,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn COL_UNIDAD;
         private DevExpress.XtraGrid.Columns.GridColumn COL_CANTIDAD;
         private DevExpress.XtraGrid.Columns.GridColumn COL_SOLICITADA;
+        private DevExpress.XtraGrid.Columns.GridColumn COL_ITEM;
     }
 }

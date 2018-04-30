@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema Agricola", "Sistema Agricola\Sistema Agricola.csproj", "{3261F928-D03F-4EC6-A393-ED7DD9DC3586}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa Datos", "Capa Datos\Capa Datos.csproj", "{CD5E8612-81E0-4467-B523-029D62E3CA4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa Logica", "Capa Logica\Capa Logica.csproj", "{7F332AD4-C898-4F6E-9F84-FA667DFA8EB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3261F928-D03F-4EC6-A393-ED7DD9DC3586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3261F928-D03F-4EC6-A393-ED7DD9DC3586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3261F928-D03F-4EC6-A393-ED7DD9DC3586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3261F928-D03F-4EC6-A393-ED7DD9DC3586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD5E8612-81E0-4467-B523-029D62E3CA4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD5E8612-81E0-4467-B523-029D62E3CA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD5E8612-81E0-4467-B523-029D62E3CA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD5E8612-81E0-4467-B523-029D62E3CA4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F332AD4-C898-4F6E-9F84-FA667DFA8EB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F332AD4-C898-4F6E-9F84-FA667DFA8EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F332AD4-C898-4F6E-9F84-FA667DFA8EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F332AD4-C898-4F6E-9F84-FA667DFA8EB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -221,5 +221,37 @@ namespace DXApplication1
         {
 
         }
+
+        private void btn_eliminar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DataTable validar = NFunciones.TABLASQL("SELECT * FROM tb_dcobrarpagardoc WHERE idproducto='"+txt_codigo.Text+"' AND idempresa='"+VariablesGenerales.Empresa+"'");
+
+            if (validar.Rows.Count > 0)
+            {
+                MessageBox.Show("No se Puede Eliminar Ya que esta registrado en productos con movimiento !", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                DialogResult respuesta = MessageBox.Show("Esta Seguro de eliminar el registro ?", "Confimación", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.OK)
+                {
+                    string delete = NFunciones.ExecuteSQL("delete tb_productos where idempresa='" + VariablesGenerales.Empresa + "' and idproducto='" + txt_codigo.Text + "'");
+                    if (delete.Equals("Ok"))
+                    {
+                        MessageBox.Show("Registro Eliminado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LlegarGrilla();
+                        limpiartxt();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puedo realizar la Operacion  !", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+            }
+        }
     }
 }
